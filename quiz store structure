@@ -1,0 +1,59 @@
+{
+    quiz:{
+        title:
+        description
+        start_time:
+        total_time:
+
+    }
+    sections:[
+        {
+            title:
+            description
+            section_number:
+        }
+    ]
+    questions:[
+        {
+            section_number
+            question_number
+            question
+            score
+        }
+    ]
+    choices:[
+        {
+            question_number
+            choice_number
+            choice
+            is_correct
+        }
+    ]
+}
+
+
+update:
+{
+    quiz:{
+        quiz_id: *
+    }
+    sections{
+        [
+            section_id:*
+            section_order: *
+        ]
+    },
+    questions{
+        [
+            section_id *
+            question_id: *
+            question_order: *
+        ]
+    }
+    choices{
+        [
+            choice_id: *
+            choice_order: *
+        ]
+    }
+}

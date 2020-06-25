@@ -1,0 +1,6 @@
+delete
+    QuestionRelationshipResource
+    AnswerRelationshipResource
+    AnswerRelationshipResource
+
+add protection to update quiz route
