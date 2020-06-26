@@ -17,10 +17,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('quizzes', \App\Http\Controllers\QuizController::class);
+//Route::resource('quizzes', \App\Http\Controllers\QuizController::class);
 
 Auth::routes();
-
 Route::get('/profile', 'ProfileController@index')->name('profile');
 
 //Auth::routes();

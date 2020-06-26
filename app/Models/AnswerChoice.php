@@ -12,4 +12,5 @@ class AnswerChoice extends Model
 
     protected $guarded = [];
 
+
 }

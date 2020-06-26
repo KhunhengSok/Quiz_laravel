@@ -20,14 +20,14 @@ class QuizController extends Controller
     }
 
     /**
-     * Display a listing of the resource.
+     * Display a listing of quiz that current user has
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        //show ask to create quiz page / home page
-//        Auth::user;
+
+        //        Auth::user;
         $user_id = 1;
         $user = User::where('id', $user_id)->with(['quizzes', 'quizzes.sections', 'quizzes.sections.questions','quizzes.sections.questions.answers'])->paginate();
 //        return new UserResource($user);
@@ -47,7 +47,7 @@ class QuizController extends Controller
 
 
     /**
-     * Store a newly created resource in storage.
+     * Store a newly created quiz in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
@@ -136,33 +136,23 @@ class QuizController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Display the specified quiz that haven't published.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-
+        //ToDo: if it's not published, only owner can view. else all people could view
         QuizResource::withoutWrapping();
 
         $quiz = Quiz::where('id', $id)->with(['sections', 'sections.questions','sections.questions.answers'])->first();
         return new QuizResource($quiz);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
 
     /**
-     * Update the specified resource in storage.
+     * Update the specified quiz in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
@@ -176,11 +166,6 @@ class QuizController extends Controller
         $sections = $request->input('sections');
         $questions = $request->json('questions');
         $choices =  $request->json('choices');
-
-//        print($request['quiz']);
-//        print($request['sections']);
-//        print($request['questions']);
-//        print($request['choices']);
 
         //check ownership
         /* ToDo
@@ -254,7 +239,7 @@ class QuizController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Remove the specified quiz from storage.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
@@ -268,5 +253,11 @@ class QuizController extends Controller
         }
         return \response()->json(null, 404);
 
+    }
+
+
+
+    public function publish(Request $request){
+        //ToDo: Only owner of quiz can access this route.
     }
 }

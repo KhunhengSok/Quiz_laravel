@@ -17,4 +17,6 @@ class Quiz_Takers_Response extends Model
     public function question(){
         return $this->belongsTo(Question::class);
     }
+
+    protected $guarded = [];
 }

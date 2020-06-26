@@ -13,4 +13,6 @@ class Quiz_Respondent extends Model
     public function quiz(){
         return $this->hasMany(Quiz::class);
     }
+
+    public $guarded = [];
 }

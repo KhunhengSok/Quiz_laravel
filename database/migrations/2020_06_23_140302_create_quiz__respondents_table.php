@@ -16,8 +16,8 @@ class CreateQuizRespondentsTable extends Migration
         Schema::create('quiz__respondents', function (Blueprint $table) {
             $table->id();
             $table->unsignedInteger('respondent_id');
-            $table->integer('quiz_id')->unsigned();
-            $table->smallInteger('scored');
+            $table->unsignedInteger('quiz_id');
+            $table->smallInteger('scored')->nullable();
             $table->dateTime('finish_time');
             $table->timestamps();
 

@@ -14,7 +14,7 @@ class Question extends Model
         return $this->hasMany(AnswerChoice::class);
     }
 
-    public function all_responses(){
+    public function allResponses(){
         return $this->hasMany(Quiz_Takers_Response::class);
     }
 

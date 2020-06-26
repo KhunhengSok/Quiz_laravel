@@ -3,7 +3,6 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-//use App\Http\Controllers\QuizController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,3 +22,14 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::apiResource('quiz', QuizController::class);
 
+//for routing
+Route::get('quiz/{quiz_id}/answer/{respondent_id}', [
+    'uses'=> ResponseController::class.'@show',
+    'as'=> 'quiz.answer'
+]);
+
+Route::post('quiz/answer/', 'ResponseController@store');
+
+Route::apiResource('quiz/{quiz_id}/answer', ResponseController::class);
+
+Route::post('quiz/{quiz_id}/publish', 'QuizController@publish');

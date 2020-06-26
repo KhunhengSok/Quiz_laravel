@@ -18,9 +18,11 @@ class CreateQuizTakersResponsesTable extends Migration
 //            $table->smallInteger('chosen_answer_order');
             $table->smallInteger('chosen_choice_id');
 //            $table->string('description', 255)->nullable();
-            $table->smallInteger('scored');
+            $table->smallInteger('scored')->nullable();
             $table->unsignedInteger('taker_id');
             $table->unsignedInteger('question_id');
+            $table->unsignedInteger('quiz_id'); //
+            $table->unsignedInteger('section_id'); //
             $table->timestamps();
 
             $table->foreign('taker_id')->references('id')->on('respondents')->onDelete('cascade');

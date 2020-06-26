@@ -1,5 +1,5 @@
 {
-    response:{ *
+    info:{ *
         'email' *
         'name': *
         'submit_time': *
@@ -8,9 +8,11 @@
     quiz:{
         'id' *
     },
-    'answer':[
+    'answers':[
         {
-            ''
+            question_id*
+            section_id*
+            chosen_choice_id
         }
     ]
 
