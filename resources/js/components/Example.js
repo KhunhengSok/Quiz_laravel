@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-function Example() {
+/*function Example() {
     return (
         <div className="container">
             <div className="row justify-content-center">
@@ -15,10 +15,18 @@ function Example() {
             </div>
         </div>
     );
+}*/
+
+function Example(){
+    return(
+
+        <button value={'button'} />
+    )
 }
 
 export default Example;
 
+
 if (document.getElementById('App')) {
-    ReactDOM.render(<App />, document.getElementById('example'));
+    ReactDOM.render(<Example/>, document.getElementById('App'));
 }
