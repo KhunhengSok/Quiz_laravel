@@ -12,6 +12,8 @@ use Illuminate\Http\Response;
 use mysql_xdevapi\Exception;
 use function GuzzleHttp\Psr7\get_message_body_summary;
 
+
+//ToDos get access for each request
 class QuizController extends Controller
 {
     public function __construct()
@@ -75,59 +77,65 @@ class QuizController extends Controller
 
 
         //create sections
-        foreach ($sections as $section){
-            $newSection = new Section();
-            $section['quiz_id'] = $quiz_id;
-            $newSection->fill($section);
-            $newSection->save();
-        }
+       if($sections){
+           foreach ($sections as $section){
+               $newSection = new Section();
+               $section['quiz_id'] = $quiz_id;
+               $newSection->fill($section);
+               $newSection->save();
+           }
+       }
 
         $questionObjects = Array();
         //create questions
-        foreach ($questions as $question){
-            $section = Section::where(['quiz_id' => $quiz_id,
-                        "section_order" => $question['section_order']])->first();
-            unset($question['section_order']);
-            $question['section_id'] = $section->id;
+        if($questions){
+            foreach ($questions as $question){
+                $section = Section::where(['quiz_id' => $quiz_id,
+                    "section_order" => $question['section_order']])->first();
+                unset($question['section_order']);
+                $question['section_id'] = $section->id;
 
-            try{
-                $newQuestion = new Question();
-                $newQuestion->fill($question);
-            }catch (\Exception $e){
-                return \response($e, 400);
-            }
+                try{
+                    $newQuestion = new Question();
+                    $newQuestion->fill($question);
+                }catch (\Exception $e){
+                    return \response($e, 400);
+                }
 
-            try{
-                $newQuestion->save();
-                array_push($questionObjects, $newQuestion);
-            }catch(\Exception $e){
-                return response($e->getMessage(), 400);
+                try{
+                    $newQuestion->save();
+                    array_push($questionObjects, $newQuestion);
+                }catch(\Exception $e){
+                    return response($e->getMessage(), 400);
 
+                }
             }
         }
 
-        foreach ($choices as $choice) {
-            $question_id = -1 ;
-            foreach ($questionObjects as $question){
-                if($question->question_order == $choice['question_order']){
-                    $question_id = $question->id;
-                    break;
+        if($choices){
+            foreach ($choices as $choice) {
+                $question_id = -1 ;
+                foreach ($questionObjects as $question){
+                    if($question->question_order == $choice['question_order']){
+                        $question_id = $question->id;
+                        break;
+                    }
                 }
-            }
-            if($question_id != -1){
-                try{
-                    $answer = new AnswerChoice();
-                    $choice['question_id'] = $question_id;
-                    unset($choice['question_order']);
-                    $answer->fill($choice);
-                    $answer->save();
+                if($question_id != -1){
+                    try{
+                        $answer = new AnswerChoice();
+                        $choice['question_id'] = $question_id;
+                        unset($choice['question_order']);
+                        $answer->fill($choice);
+                        $answer->save();
 
-                }catch (\Exception $e){
-                    return \response($e->getMessage(), 400);
+                    }catch (\Exception $e){
+                        return \response($e->getMessage(), 400);
+                    }
+
+                }else{
+                    return \response('Can not find the corresponding question', 400);
                 }
-
-            }else{
-                return \response('Can not find the corresponding question', 400);
             }
         }
 
@@ -193,7 +201,7 @@ class QuizController extends Controller
                 foreach ($sections as $section){
                     $sectionObject = Section::where('id', $section['id'])->first();
                     if(!$sectionObject){
-                        throw new Exception("Can not find section with id: " + $section['id']);
+                        throw new \Exception("Can not find section with id: " + $section['id']);
                     }
                     $sectionObject->update($section);
                     $sectionObject->save();
@@ -202,12 +210,10 @@ class QuizController extends Controller
 
             //if 'questions' key is provided
             if($questions){
-                print('run');
-
                 foreach ($questions as $question){
                     $questionObject = Question::where('id', $question['id'])->first();
                     if(!$questionObject){
-                        throw new Exception("Can not find question with id: " + $question['id']);
+                        throw new \Exception("Can not find question with id: " + $question['id']);
                     }
                     $questionObject->update($question);
                     $questionObject->save();
@@ -216,19 +222,15 @@ class QuizController extends Controller
 
             //if 'choices' key is provied
             if($choices){
-                print('run');
-
                 foreach ($choices as $choice){
                     $choiceObject = AnswerChoice::where('id', $choice['id'])->first();
                     if(!$choiceObject){
-                        throw new Exception("Can not find section with id: " + $section['id']);
+                        throw new \Exception("Can not find choice with id: " + $choice['id']);
                     }
                     $choiceObject->update($choice);
                     $choiceObject->save();
                 }
             }
-
-
 
             return $this->show($id);
         }catch (\Exception $e){

@@ -33,3 +33,18 @@ Route::post('quiz/answer/', 'ResponseController@store');
 Route::apiResource('quiz/{quiz_id}/answer', ResponseController::class);
 
 Route::post('quiz/{quiz_id}/publish', 'QuizController@publish');
+
+
+Route::group([
+    'prefix' => 'auth'
+], function () {
+    Route::post('login', 'AuthController@login');
+    Route::post('signup', 'AuthController@signup');
+
+    Route::group([
+        'middleware' => 'auth:api'
+    ], function() {
+        Route::get('logout', 'AuthController@logout');
+        Route::get('user', 'AuthController@user');
+    });
+});

@@ -3,12 +3,12 @@
 @section('content')
 
 <body>
-    <div id="App">
+    <div id="index">
 
     </div>
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" ></script>
 
+    <!-- Scripts -->
+    <script src="{{ asset('js/app.js' )}}"></script>
 </body>
 
 @endsection

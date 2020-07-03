@@ -13,6 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+Route::view('/{path?}/{path1?}/{path3?}', 'welcome');
+
 Route::get('/', function () {
     return view('welcome');
 });

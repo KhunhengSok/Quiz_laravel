@@ -11,13 +11,16 @@
 }
 
 .custom-navbar-item {
-    font-size: 1.1rem;
-    font-weight: 400;
+    font-size: 1.3rem;
+    font-weight: 500;
+    text-underline: none;
+    text-decoration: none;
+
 }
 
 .button-confirm {
     background-color: #00A8FF;
-    color: white
+    color: white;
 }
 
 .quiz {
@@ -26,14 +29,14 @@
     padding: 20px;
     border: 0.8px solid #cccccc;
     border-radius: 16px;
-    box-shadow: 20px #888888  ;
+    box-shadow: 1px 1px #888888  ;
 
 }
 
 .quiz-header {
     font-size: 2.5rem ;
     font-weight: 800;
-    margin: 10dp ;
+    margin: 10px ;
     margin-bottom: 0px;
 }
 
@@ -42,23 +45,24 @@
     font-size: medium;
     margin-top: 0px;
     padding-top: 0px;
-    margin-bottom: 10dp;
+    margin-bottom: 10px;
     font-weight: 100;
 }
 
 .question-title {
-    font-size: x-large;
+    font-size: 1.7rem;
 
 }
 
 .question-score {
-    font-size: medium;
+    /*font-size: medium;*/
     float: right;
+    font-size: 1.4rem;
 }
 
-/* .option {
-
-} */
+.option {
+    font-size: 1.4rem;
+}
 
 .question {
     margin-top:20px;
@@ -66,20 +70,37 @@
     padding: 20px;
     border: 0.4px solid #cccccc;
     border-radius: 16px;
-    box-shadow: 10px #888888  ;
     background-color: white;
-    box-shadow: 20px #888888;
+    box-shadow: 0.5px 0.5px #888888;
 
 }
 
 .align-right {
     display: flex ;
-    flex-direction: horizontal;
+    flex-direction: row;
     align-content: flex-end;
     justify-content: flex-end;
 }
 
-.title {
-    font-weight: 500;
-    font-size: 1.4rem;
+.align-bottom-right {
+    position: absolute;
+    right: 0px ;
+    bottom: 0px;
 }
+
+.title {
+    font-weight: 400;
+    font-size: 1.5rem;
+}
+
+
+.flex-row{
+    display: flex;
+    flex-direction: row;
+}
+
+.flex-column{
+    display: flex;
+    flex-direction: column;
+}
+

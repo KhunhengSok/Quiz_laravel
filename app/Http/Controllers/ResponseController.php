@@ -19,7 +19,7 @@ class ResponseController extends Controller
 {
     public function __construct()
     {
-//        $this->middleware('auth', ['except'=>['store', 'update', 'destroy']]);
+//        $this->middleware('auth:api', ['except'=>['store', 'update', 'destroy']]);
     }
 
     /**

@@ -9,34 +9,7 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
-        {{-- <ul class="navbar-nav ml-auto ">
-          <li class="nav-item active">
-            <a class="nav-link" href="#">Login </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Register</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Pricing</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link disabled" href="#">Disabled</a>
-          </li>
-        </ul>
-         --}}
-        {{-- @if (Route::has('login'))
-           <div class="top-right links ">
-               @auth
-                   <a class="text-white nav-link" href="{{ url('/') }}">Home</a>
-               @else
-                   <a class="text-white nav-link" href="{{ route('login') }}">Login</a>
 
-                   @if (Route::has('register'))
-                       <a class="text-white" href="{{ route('register') }}">Register</a>
-                   @endif
-               @endauth
-           </div>
-       @endif   --}}
         <!-- Right Side Of Navbar -->
             <ul class=" ml-auto custom-navbar-item">
                 {{-- <li class="nav-item custom-navbar custom-navbar-item"> --}}
