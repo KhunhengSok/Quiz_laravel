@@ -6,8 +6,8 @@ class HomePage extends PureComponent {
         return (
             <div>
                 <Navbar/>
-                <div className='container my-4'>
-                    <h1>Home Page</h1>
+                <div className='container my-4 blur'>
+                    <h1>Home page</h1>
                 </div>
             </div>
         )

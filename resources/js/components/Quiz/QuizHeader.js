@@ -16,7 +16,7 @@ const QuizHeader = (props) => {
                     }}/>
                 </div>
                 <QuizInfoDialog  {...props}/>
-                <QuizTime/>
+                <QuizTime {...props}/>
             </div>
         </div>
     )

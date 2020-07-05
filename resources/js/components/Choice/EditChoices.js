@@ -1,16 +1,19 @@
 import React from "react";
 import Choice from "./EditChoice";
 
-const EditChoices =  (props)=>{
+const EditChoices = (props) => {
     let option = 'Option'
+
     return (
-       <div>
-           {/*for loop*/}
-           <Choice checked={true} option={option} />
-           <Choice checked={false} option={option}/>
-           <Choice checked={false} option={option}/>
-           <Choice checked={false} option={option}/>
-       </div>
+        <div>
+            <form>
+                {/*for loop*/}
+                <Choice checked={true} option={option}  {...props}/>
+                <Choice checked={false} option={option} {...props}/>
+                <Choice checked={false} option={option} {...props}/>
+                <Choice checked={false} option={option} {...props}/>
+            </form>
+        </div>
     )
 }
 

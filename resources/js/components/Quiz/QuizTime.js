@@ -2,8 +2,9 @@ import React from "react";
 
 import StartTimeInput from "./StartTimeInput";
 import TotalTimeInput from "./TotalTimeInput";
+import StartDataInput from "./StartDateInput";
 
-const QuizTime = () => {
+const QuizTime = (props) => {
     let timeStyle = {
         display: "flex",
         justifyContent: "space-between",
@@ -14,8 +15,9 @@ const QuizTime = () => {
 
     return (
         <div style={timeStyle}  className="m-4">
-            <StartTimeInput />
-            <TotalTimeInput />
+            <StartDataInput {...props} />
+            <StartTimeInput {...props} />
+            <TotalTimeInput {...props}/>
         </div>
         // <div style={{
         //     display: "flex",

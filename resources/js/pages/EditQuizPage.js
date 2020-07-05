@@ -1,4 +1,4 @@
-import React, {PureComponent, useEffect, useState} from 'react';
+import React, { useEffect, useState} from 'react';
 import {Axios} from 'axios' ;
 
 import Navbar from "../components/navbar/Navbar";
@@ -8,14 +8,18 @@ import QuizTime from "../components/Quiz/QuizTime";
 import QuizHeader from "../components/Quiz/QuizHeader";
 import QuizFooter from "../components/Quiz/QuizFooter";
 import QuizBody from "../components/Quiz/QuizBody";
+import "materialize-css/dist/css/materialize.min.css"
 
 
 const EditQuizPage = () => {
     let id = useParams().id
-
-    useEffect( ()=>{
-        console.log('hello world')
-    }, [5])
+    const [disabled, setDisabled] = useState(false)
+    // const [quiz, setQuiz ] = useState({
+    //     'title': "CG Exam",
+    //     'description': "Complete the exam before 2:30pm"
+    // })
+    const [quiz, setQuiz] = useState({})
+    const [sections, setSections] = useState({})
 
     const onQuizTitleChange = (data) => {
         setQuiz( prevQuiz =>{
@@ -30,26 +34,23 @@ const EditQuizPage = () => {
         })
 
     }
-    const handleQuizChange = (data) => {
-        setQuiz( data )
-    }
+
 
 
     useEffect( ()=>{
+        console.log('use effect')
         //post request
-    }, [quiz])
+        axios.get(`/api/quiz/${id}`).then( result => {
+            console.log(result);
+            setQuiz(result.data.attributes)
+            setSections(result.data.relationship.sections)
 
-    const [quiz, setQuiz] = useState({
-        'quiz_title': "CG Exam",
-        'quiz_description': "Complete the exam before 2:30pm"
-    });
-    const [section, setSection] = useState([]);
+        }).catch( err => {
+            console.log(err);
+        })
+    }, [])
 
 
-
-    useEffect( ()=> {
-        //api
-    },[])
 
 
     const handleAddQuestion = () =>{}
@@ -58,12 +59,12 @@ const EditQuizPage = () => {
 
     return (
         <div>
+            {console.log('render')}
             <Navbar/>
             <div className="flex-center position-ref full-height container quiz">
-
-                <QuizHeader quiz={quiz}/>
-                <QuizBody/>
-                <QuizFooter />
+                <QuizHeader disabled={disabled} data={quiz}/>
+                <QuizBody disabled={disabled} data={sections}/>
+                <QuizFooter disabled={disabled} />
 
             </div>
         </div>

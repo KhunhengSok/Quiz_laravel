@@ -1,3 +1,14 @@
+body {
+    margin: 0;
+    font-family: 'Helvetica', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 400;
+    line-height: 1.6;
+    color: #212529;
+    text-align: left;
+    background-color: #f8fafc;
+}
+
 .custom-navbar {
     color:white;
     background-color: #FFB746;
@@ -88,6 +99,23 @@
     bottom: 0px;
 }
 
+.auth-wrapper {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: left;
+}
+
+.auth-inner {
+    width: 450px;
+    margin: auto;
+    background: #ffffff;
+    box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2);
+    padding: 40px 55px 45px 55px;
+    border-radius: 15px;
+    transition: all .3s;
+}
+
 .title {
     font-weight: 400;
     font-size: 1.5rem;
@@ -104,3 +132,22 @@
     flex-direction: column;
 }
 
+.forgot-password,
+.forgot-password a {
+    text-align: right;
+    font-size: 13px;
+    padding-top: 10px;
+    color: #7f7d7d;
+    margin: 0;
+}
+
+.blur{
+    height: 100%;
+    width: 100%;
+    background: black;
+    filter: blur(4px);
+}
+
+.error{
+    color: red;
+}

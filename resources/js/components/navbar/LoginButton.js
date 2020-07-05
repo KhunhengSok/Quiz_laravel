@@ -6,7 +6,7 @@ class LoginButton extends PureComponent {
         return (
             <Link to='/login' style={{textDecoration: 'none'}}>
                 <li className="nav-item nav-link text-white">
-                    Login
+                    Log In
                 </li>
             </Link>
         );

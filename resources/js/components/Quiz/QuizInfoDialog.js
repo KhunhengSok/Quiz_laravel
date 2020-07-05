@@ -1,19 +1,14 @@
-import React, {PureComponent} from 'react';
+import React, {PureComponent, useEffect, useState} from 'react';
 import {useForm} from "react-hook-form";
-import {TextField} from "@material-ui/core";
-import M from 'materialize-css'
-import {TextInput} from 'react-materialize';
-
 
 const QuizInfoDialog = (props) => {
     const {register, handleSubmit, watch, errors} = useForm();
+    const [title, setTitle] = useState('');
+    const [description, setDescription] = useState('')
 
     const onSubmit = data => {
         console.log(data);
     }
-
-    let quizTitle = props.quiz.quiz_title ? props.quiz.quiz_title : 'Untitled'
-    let quizDescription = props.quiz.quiz_description ? props.quiz.quiz_description : ''
 
     const handleTitleChange = data => {
         // props.handleQuizChange()
@@ -29,24 +24,27 @@ const QuizInfoDialog = (props) => {
         border: "0px",
         margin: "0px",
         padding: "0px",
-
     }
 
+    useEffect( ()=>{
+        console.log(props)
+        setTitle(props.data.title)
+        setDescription(props.data.description)
+    }, [])
 
     return (
         <div className='quiz'>
            <form>
                <div className={'input-field'}>
                    <input name="quiz_title" type="text" className="validate title" placeholder={"Title"}
-                          value={'Untitled'}
-                          onChange={ ()=> {}}
-                          style={inputStyle} ref={register({required: "Title is required"})}/>
+                          value={title} disabled={props.disabled} onChange={ ()=> {}}
+                          style={inputStyle} ref={register}/>
                    {errors.quiz_title && errors.quiz_title.message}
                </div>
 
                <div className={'input-field'}>
-                   <input name="quiz_description" type="text" placeholder="Description" className="validate"
-                          style={inputStyle} ref={register({required: "Description is required"})} onChange={()=>{}}/>
+                   <input name="quiz_description" type="text" placeholder="Description" className="validate" disabled={props.disabled}
+                          style={inputStyle} value={description} ref={register} onChange={()=>{}}/>
                    {errors.quiz_description && errors.quiz_description.message}
                </div>
            </form>

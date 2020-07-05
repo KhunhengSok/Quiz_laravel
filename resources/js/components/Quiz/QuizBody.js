@@ -8,10 +8,10 @@ const QuizBody = (props)=>{
 
     return(
         <Fragment>
-            <EditSection />
-            <EditQuestion />
-            <EditQuestion />
-            <EditQuestion />
+            <EditSection {...props} />
+            <EditQuestion {...props}/>
+            <EditQuestion {...props}/>
+            <EditQuestion {...props} />
         </Fragment>
     )
 
