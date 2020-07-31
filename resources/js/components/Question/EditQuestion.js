@@ -21,7 +21,7 @@ const EditQuestion = (props) => {
                     {/*<label htmlFor='score'>Score: </label>*/}
                     <input id='score' name={'max_score'} type="number" style={{margin: '0px', padding: '0px'}} disabled={props.disabled}
                            className="question-score" ref={register} onChange={() => {}}/>
-                    <p>Score</p>
+                    <p style={{} }>Score</p>
                 </div>
             </div>
 

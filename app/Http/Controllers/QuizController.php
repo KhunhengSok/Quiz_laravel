@@ -168,7 +168,6 @@ class QuizController extends Controller
      */
     public function update(Request $request, $id)
     {
-
         //retrieving value
         $quiz = $request->get('quiz');
         $sections = $request->input('sections');
@@ -198,6 +197,27 @@ class QuizController extends Controller
 
             //if 'section' key is provided
             if($sections){
+                $sectionObjects = Section::where('quiz_id', $id)->get();
+                $size = 0;
+                if( sizeof($sectionObjects) > sizeof(sections)){
+                    $size = sizeof($sectionObjects);
+                }else{
+                    $size = sizeof(sections);
+                }
+                for( $i = 0 ; $i<= size; $i++ ){
+                    if( i < sizeof(sections)){
+                        //ToDos
+                    }else{
+                        print("delete");
+                        $sectionObjects[i]->delete();
+                    }
+
+                }
+            }else{}
+
+
+            //if 'section' key is provided
+           /* if($sections){
                 foreach ($sections as $section){
                     $sectionObject = Section::where('id', $section['id'])->first();
                     if(!$sectionObject){
@@ -206,7 +226,7 @@ class QuizController extends Controller
                     $sectionObject->update($section);
                     $sectionObject->save();
                 }
-            }
+            }*/
 
             //if 'questions' key is provided
             if($questions){
@@ -220,7 +240,7 @@ class QuizController extends Controller
                 }
             }
 
-            //if 'choices' key is provied
+            //if 'choices' key is provided
             if($choices){
                 foreach ($choices as $choice){
                     $choiceObject = AnswerChoice::where('id', $choice['id'])->first();
@@ -254,12 +274,13 @@ class QuizController extends Controller
             return \response()->json(null, 204);
         }
         return \response()->json(null, 404);
-
     }
-
 
 
     public function publish(Request $request){
         //ToDo: Only owner of quiz can access this route.
+
+
     }
+
 }

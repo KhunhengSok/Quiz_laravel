@@ -16,6 +16,11 @@ const SignUpPage = (props) => {
             console.log(data)
             setLoading(true)
             Auth.signup(data).then( result => {
+                console.log('signed up')
+                Auth.storeAuthenticated(true);
+                Auth.storeToken(result.data.token);
+                Auth.storeUser(result.data.user);
+
                 setLoading(false)
                 setError({})
             }).catch( err =>{
@@ -35,13 +40,12 @@ const SignUpPage = (props) => {
     }, [])
 
 
-
-
     let location  = props.location ? props.location : '/'
 
     if(isLoggedIn === true){
         return <Redirect to={location} />
     }else {
+        console.log(location)
 
         return (
             <div>
@@ -84,7 +88,7 @@ const SignUpPage = (props) => {
                                        placeholder="Enter password"
                                        ref={register({required: 'Please confirm the password'})}/>
                                 {errors.password_confirmation &&
-                                <span className={'error'}>{errors.password_confirmation[0]}</span>}
+                                <span className={'error'}>{errors.password_confirmation.message}</span>}
                                 {error.password_confirmation &&
                                 <span className={'error'}>{error.password_confirmation[0]}</span>}
                             </div>
@@ -97,7 +101,6 @@ const SignUpPage = (props) => {
                     </div>
                 </div>
             </div>
-
         );
     }
 }

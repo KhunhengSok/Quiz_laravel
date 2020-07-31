@@ -49,8 +49,6 @@ const LoginPage = (props) => {
     }
 
 
-
-
     let location  = props.location ? props.location : '/'
 
     if (isLoggedIn === true ) {
