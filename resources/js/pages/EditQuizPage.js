@@ -1,74 +1,78 @@
-import React, { useEffect, useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Axios} from 'axios' ;
 
 import Navbar from "../components/navbar/Navbar";
-import {useParams} from 'react-router-dom'
+import {Redirect, useParams} from 'react-router-dom'
 import QuizInfoDialog from "../components/Quiz/QuizInfoDialog";
 import QuizTime from "../components/Quiz/QuizTime";
 import QuizHeader from "../components/Quiz/QuizHeader";
 import QuizFooter from "../components/Quiz/QuizFooter";
 import QuizBody from "../components/Quiz/QuizBody";
 import "materialize-css/dist/css/materialize.min.css"
+import {useFetch} from "../useFetch";
 
 
-const EditQuizPage = () => {
-    let id = useParams().id
+function EditQuizPage(props, location) {
+    let count = 0
+    // let id = useParams().id
+    // const [loaded, setLoaded] = useState(false)
+    let loaded = false
     const [disabled, setDisabled] = useState(false)
-    // const [quiz, setQuiz ] = useState({
-    //     'title': "CG Exam",
-    //     'description': "Complete the exam before 2:30pm"
-    // })
+    const [id, setId] = useState(useParams().id)
     const [quiz, setQuiz] = useState({})
     const [sections, setSections] = useState({})
+    const {data, loading} = useFetch(`/api/quiz/${id}`)
+
 
     const onQuizTitleChange = (data) => {
-        setQuiz( prevQuiz =>{
+        setQuiz(prevQuiz => {
             // let newQuiz = [...prevQuiz]
             console.log(prevQuiz)
         })
     }
 
-    const onQuizDescriptionChange = (data) =>{
-        setQuiz( prevQuiz =>{
+    const onQuizDescriptionChange = (data) => {
+        setQuiz(prevQuiz => {
             console.log(prevQuiz)
         })
 
     }
 
-
-
-    useEffect( ()=>{
+    useEffect(() => {
+        // console.log(id)
+        // console.log(props)
         console.log('use effect')
         //post request
-        axios.get(`/api/quiz/${id}`).then( result => {
+        axios.get(`/api/quiz/${id}`).then(result => {
             console.log(result);
             setQuiz(result.data.attributes)
             setSections(result.data.relationship.sections)
-
-        }).catch( err => {
+        }).catch(err => {
             console.log(err);
         })
-    }, [])
+    }, [id,])
 
 
+    const handleAddQuestion = () => {
 
+    }
 
-    const handleAddQuestion = () =>{}
-    const handleAddSection = () => {}
+    const handleAddSection = () => {
 
+    }
 
     return (
         <div>
-            {console.log('render')}
             <Navbar/>
             <div className="flex-center position-ref full-height container quiz">
-                <QuizHeader disabled={disabled} data={quiz}/>
-                <QuizBody disabled={disabled} data={sections}/>
-                <QuizFooter disabled={disabled} />
-
+                <QuizHeader disabled={disabled} data={quiz} isEdit={true} />
+                <QuizBody disabled={disabled} data={sections} isEdit={true}/>
+                <QuizFooter disabled={disabled} isEdit={true}/>
             </div>
         </div>
     );
+
+
 }
 
 

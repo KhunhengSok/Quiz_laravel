@@ -19,7 +19,7 @@ export default function CreateQuizPage(props) {
 
 
     if(id!= 0) return <Redirect to={`${id}/edit`} />
-    else return <div></div>
+    else return <div> </div>
 
 }
 

@@ -4,6 +4,10 @@ import StartTimeInput from "./StartTimeInput";
 import TotalTimeInput from "./TotalTimeInput";
 import StartDataInput from "./StartDateInput";
 
+/*date
+start_time
+total_time*/
+
 const QuizTime = (props) => {
     let timeStyle = {
         display: "flex",
@@ -33,4 +37,4 @@ const QuizTime = (props) => {
     )
 }
 
-export default  QuizTime ;
+export default  QuizTime;

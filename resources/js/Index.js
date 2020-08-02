@@ -21,6 +21,7 @@ class Index extends Component {
                     <Route path='/login' exact render={() => <LoginPage/>}/>
                     <Route path='/signup' exact render={() => <SignUpPage/>}/>
                     <Route path='/quiz/create' exact render={() => <CreateQuizPage/>}/>
+                    {/*<Route path='/quiz/:id' exact render={()=> <EditQuizPage />} />*/}
                     <Route path='/quiz/:id/edit' exact render={()=> <EditQuizPage />} />
                     <Route path='/forget_password' exact render={ ()=> <ForgetPasswordPage />} />
                     <Route path='/profile' exact render={ ()=> <UserProfilePage /> } />

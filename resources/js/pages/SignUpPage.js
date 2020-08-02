@@ -17,12 +17,17 @@ const SignUpPage = (props) => {
             setLoading(true)
             Auth.signup(data).then( result => {
                 console.log('signed up')
+                console.log(result)
                 Auth.storeAuthenticated(true);
                 Auth.storeToken(result.data.token);
                 Auth.storeUser(result.data.user);
 
+                setLoggedIn(true)
                 setLoading(false)
                 setError({})
+                return(
+                    <Redirect to={'/'} />
+                )
             }).catch( err =>{
                 setLoading(false)
                 if(err.response.status == 422){

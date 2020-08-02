@@ -41,9 +41,21 @@ class AuthController extends Controller
                 'workplace' => isset( $request->workplace) ? $request->workplace : ''
             ]);
             $user->save();
-            return response()->json([
+            /*return response()->json([
                 'message' => 'Successfully created user!'
-            ], 201);
+            ], 201);*/
+            $tokenResult = $user->createToken('Personal Access Token');
+            $token = $tokenResult->token;
+            return response()->json([
+                'token' => [
+                    'access_token' => $tokenResult->accessToken,
+                    'token_type' => 'Bearer',
+                    'expires_at' => Carbon::parse(
+                        $tokenResult->token->expires_at
+                    )->toDateTimeString()
+                ],
+                'user' => $user
+            ]);
         }catch( \Exception $e){
             return \response()->json([
                 'message' => $e->getMessage()

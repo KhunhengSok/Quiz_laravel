@@ -4,6 +4,8 @@ import QuizTime from "./QuizTime";
 import React from "react";
 import Button from "../shared/Button";
 
+/*quizinfodialog
+quiztime*/
 const QuizHeader = (props) => {
     return (
         <div>

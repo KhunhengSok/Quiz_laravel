@@ -6,6 +6,13 @@ const QuizInfoDialog = (props) => {
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('')
 
+    /*
+        description
+        title
+        submit handler
+    */
+
+
     const onSubmit = data => {
         console.log(data);
     }
@@ -13,6 +20,7 @@ const QuizInfoDialog = (props) => {
     const handleTitleChange = data => {
         // props.handleQuizChange()
         // console.log()
+
     }
 
     const handleDescriptionChange = data => {
@@ -23,7 +31,7 @@ const QuizInfoDialog = (props) => {
     const inputStyle = {
         border: "0px",
         margin: "0px",
-        padding: "0px",
+        padding:"0px",
     }
 
     useEffect( ()=>{
@@ -32,19 +40,20 @@ const QuizInfoDialog = (props) => {
         setDescription(props.data.description)
     }, [])
 
+
     return (
         <div className='quiz'>
            <form>
                <div className={'input-field'}>
                    <input name="quiz_title" type="text" className="validate title" placeholder={"Title"}
-                          value={title} disabled={props.disabled} onChange={ ()=> {}}
+                          value={props.data.title} disabled={props.disabled} onChange={ ()=> {}}
                           style={inputStyle} ref={register}/>
                    {errors.quiz_title && errors.quiz_title.message}
                </div>
 
                <div className={'input-field'}>
                    <input name="quiz_description" type="text" placeholder="Description" className="validate" disabled={props.disabled}
-                          style={inputStyle} value={description} ref={register} onChange={()=>{}}/>
+                          style={inputStyle} value={props.data.description} ref={register} onChange={()=>{}}/>
                    {errors.quiz_description && errors.quiz_description.message}
                </div>
            </form>

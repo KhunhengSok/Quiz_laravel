@@ -11,7 +11,10 @@ const StartDataInput = (props) => {
     return (
         <Fragment>
             <div className={'mt-4'} style={myStyle}>Date:</div>
-            <input className="form-control" value={getLocalDate(props.data.start_time)} type="date" disabled={props.disabled} />
+            <input className="form-control" value={getLocalDate(props.data.start_time)} type="date" disabled={props.disabled}
+                   onChange={(event) => {
+                       console.log(event)
+                   }}/>
         </Fragment>
     )
 }
