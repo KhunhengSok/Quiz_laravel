@@ -2,6 +2,7 @@ import React, {Fragment, useState} from "react";
 import EditSection from "../Section/EditSection";
 import EditQuestion from "../Question/EditQuestion";
 import Section from "../Section/Section";
+import QuizFooter from "./QuizFooter";
 
 
 /*section
@@ -13,19 +14,24 @@ const QuizBody = (props)=>{
     const data = props.data.data
 
     let ele = []
+    let order = 1
 
     if(data){
-        for(let i=0 ; i<data.length; i++){
-            ele.push(<Section key={i} section={data[i]} {...props} />)
+        while(order < data.length ){
+            for(let i=0 ; i<data.length; i++){
+                if(data[i].section_order == order){
+                    ele.push(<Section key={i} section={data[i]} {...props} />)
+                    order +=1
+                }
+            }
         }
     }
-
-
 
 
     return (
         <Fragment>
             {ele}
+            <QuizFooter {...props}/>
         </Fragment>
 
     )

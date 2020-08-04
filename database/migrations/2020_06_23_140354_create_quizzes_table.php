@@ -18,7 +18,8 @@ class CreateQuizzesTable extends Migration
             $table->string('title', 255)->nullable();
             $table->string('description', 255)->nullable();
 //            $table->string('link', '255');
-            $table->datetime('start_time')->nullable();
+            $table->date("start_date")->nullable();
+            $table->time('start_time')->nullable();
             $table->smallInteger('total_time')->nullable();
             $table->dateTime('published_time')->nullable();
             $table->unsignedInteger('owner_id');

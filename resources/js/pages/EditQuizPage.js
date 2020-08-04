@@ -39,9 +39,6 @@ function EditQuizPage(props, location) {
     }
 
     useEffect(() => {
-        // console.log(id)
-        // console.log(props)
-        console.log('use effect')
         //post request
         axios.get(`/api/quiz/${id}`).then(result => {
             console.log(result);
@@ -61,13 +58,41 @@ function EditQuizPage(props, location) {
 
     }
 
+    const handleQuizInfoChange =  (event)=>{
+        setQuiz({...quiz, [event.target.name]: event.target.value})
+
+
+    }
+
+    const handleSectionChange = (event)=> {
+        console.log( event)
+        // console.log(event.target.name)
+        // console.log(event.target.value)
+        // setSections(...sections)
+    }
+
+    const handleQuestionChange = (event)=> {
+        console.log( event)
+        console.log(event.target.name)
+        console.log(event.target.value)
+    }
+
+    const handleChoicesChange = ()=>{
+
+    }
+
+
+
+
+
+
     return (
         <div>
             <Navbar/>
             <div className="flex-center position-ref full-height container quiz">
-                <QuizHeader disabled={disabled} data={quiz} isEdit={true} />
-                <QuizBody disabled={disabled} data={sections} isEdit={true}/>
-                <QuizFooter disabled={disabled} isEdit={true}/>
+                <QuizHeader disabled={disabled} data={quiz} isEdit={true} onChange={(e) => handleQuizInfoChange(e)}/>
+                <QuizBody disabled={disabled} data={sections} isEdit={true} onChange={(e) => handleSectionChange(e)}/>
+                {/*<QuizFooter disabled={disabled} isEdit={true}/>*/}
             </div>
         </div>
     );

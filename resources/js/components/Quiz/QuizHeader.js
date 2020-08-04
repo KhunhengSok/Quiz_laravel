@@ -17,6 +17,7 @@ const QuizHeader = (props) => {
                     <Button text={"Publish"} onClick={() => {
                     }}/>
                 </div>
+
                 <QuizInfoDialog  {...props}/>
                 <QuizTime {...props}/>
             </div>

@@ -35,7 +35,6 @@ const QuizInfoDialog = (props) => {
     }
 
     useEffect( ()=>{
-        console.log(props)
         setTitle(props.data.title)
         setDescription(props.data.description)
     }, [])
@@ -45,15 +44,15 @@ const QuizInfoDialog = (props) => {
         <div className='quiz'>
            <form>
                <div className={'input-field'}>
-                   <input name="quiz_title" type="text" className="validate title" placeholder={"Title"}
-                          value={props.data.title} disabled={props.disabled} onChange={ ()=> {}}
+                   <input name="title" type="text" className="validate title" placeholder={"Title"}
+                          value={props.data.title} disabled={props.disabled} onChange={ props.onChange}
                           style={inputStyle} ref={register}/>
                    {errors.quiz_title && errors.quiz_title.message}
                </div>
 
                <div className={'input-field'}>
-                   <input name="quiz_description" type="text" placeholder="Description" className="validate" disabled={props.disabled}
-                          style={inputStyle} value={props.data.description} ref={register} onChange={()=>{}}/>
+                   <input name="description" type="text" placeholder="Description" className="validate" disabled={props.disabled}
+                          style={inputStyle} value={props.data.description} ref={register} onChange={props.onChange}/>
                    {errors.quiz_description && errors.quiz_description.message}
                </div>
            </form>

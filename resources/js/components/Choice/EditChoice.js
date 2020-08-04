@@ -9,6 +9,7 @@ const Choice = (props) => {
                 <label>
                     <input name={'option_order'} type='radio' disabled={true} checked />
                     <span>{props.option}</span>
+                    {/*<input name={"choice"} value={props.option} />*/}
                 </label>
             </div>
         )

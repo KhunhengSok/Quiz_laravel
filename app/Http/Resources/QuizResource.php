@@ -25,6 +25,7 @@ class QuizResource extends JsonResource
                 'start_time'        => $this->start_time,
                 'total_time'        => $this->total_time,
                 'published_time'    => $this->published_time,
+                'start_date'        => $this->start_date,
             ],
             'relationship' => new QuizRelationshipResource($this),
             'link'         => [

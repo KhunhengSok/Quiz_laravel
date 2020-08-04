@@ -15,13 +15,13 @@ const Section = (props) => {
 
     if (isEdit) {
         if (questions) {
-            for (let i = 0; i < questions.length; i++) {
-                if(questions[i].question_order == order){
-                    ele.push(<EditQuestion key={i} question={questions[i]} {...props} />)
-                    order +=1
+            while(order < questions.length){
+                for (let i = 0; i < questions.length; i++) {
+                    if(questions[i].question_order == order){
+                        ele.push(<EditQuestion key={i} question={questions[i]} {...props} />)
+                        order +=1
+                    }
                 }
-
-
             }
         }
     } else {

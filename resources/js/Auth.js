@@ -78,7 +78,7 @@ class Auth {
     isAuthenticated() {
         let authenticated = localStorage.getItem(IS_AUTHENTICATED)
         if(authenticated) {
-            console.log(authenticated)
+            // console.log(authenticated)
             this.authenticated = JSON.parse(authenticated)
             return this.authenticated
         }else{

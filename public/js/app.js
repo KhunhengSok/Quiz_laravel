@@ -6454,7 +6454,7 @@ exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader
 
 
 // module
-exports.push([module.i, "body {\n    margin: 0;\n    font-family: 'Helvetica', sans-serif;\n    font-size: 1.2rem;\n    font-weight: 400;\n    line-height: 1.6;\n    color: #212529;\n    text-align: left;\n    background-color: #f8fafc;\n}\n\n.custom-navbar {\n    color:white;\n    background-color: #FFB746;\n    padding-left: 10px;\n    padding-right:  10px;\n}\n\n.custom-navbar-title {\n    font-size: 1.4rem;\n    font-weight: 600;\n}\n\n.custom-navbar-item {\n    font-size: 1.3rem;\n    font-weight: 500;\n    text-underline: none;\n    text-decoration: none;\n\n}\n\n.button-confirm {\n    background-color: #00A8FF;\n    color: white;\n}\n\n.quiz {\n    margin-top:20px;\n    margin-bottom: 5px;\n    padding: 20px;\n    border: 0.8px solid #cccccc;\n    border-radius: 16px;\n    box-shadow: 1px 1px #888888  ;\n\n}\n\n.quiz-header {\n    font-size: 2.5rem ;\n    font-weight: 800;\n    margin: 10px 10px 0px;\n}\n\n.description {\n    color: grey;\n    font-size: medium;\n    margin-top: 0px;\n    padding-top: 0px;\n    margin-bottom: 10px;\n    font-weight: 100;\n}\n\n.question-title {\n    font-size: 1.7rem;\n\n}\n\n.question-score {\n    /*font-size: medium;*/\n    float: right;\n    font-size: 1.4rem;\n}\n\n.option {\n    font-size: 1.4rem;\n}\n\n.question {\n    margin-top:20px;\n    margin-bottom: 5px;\n    padding: 20px;\n    border: 0.4px solid #cccccc;\n    border-radius: 16px;\n    background-color: white;\n    box-shadow: 0.5px 0.5px #888888;\n\n}\n\n.align-right {\n    display: flex ;\n    flex-direction: row;\n    align-content: flex-end;\n    justify-content: flex-end;\n}\n\n.align-bottom-right {\n    position: absolute;\n    right: 0px ;\n    bottom: 0px;\n}\n\n.auth-wrapper {\n    display: flex;\n    justify-content: center;\n    flex-direction: column;\n    text-align: left;\n}\n\n.auth-inner {\n    width: 450px;\n    margin: auto;\n    background: #ffffff;\n    box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2);\n    padding: 40px 55px 45px 55px;\n    border-radius: 15px;\n    transition: all .3s;\n}\n\n.title {\n    font-weight: 400;\n    font-size: 1.5rem;\n}\n\n\n.flex-row{\n    display: flex;\n    flex-direction: row;\n}\n\n.flex-column{\n    display: flex;\n    flex-direction: column;\n}\n\n.forgot-password,\n.forgot-password a {\n    text-align: right;\n    font-size: 13px;\n    padding-top: 10px;\n    color: #7f7d7d;\n    margin: 0;\n}\n\n.blur{\n    height: 100%;\n    width: 100%;\n    background: black;\n    -webkit-filter: blur(4px);\n            filter: blur(4px);\n}\n\n.error{\n    color: red;\n}\n", ""]);
+exports.push([module.i, "body {\n    margin: 0;\n    font-family: 'Helvetica', sans-serif;\n    font-size: 1.2rem;\n    font-weight: 400;\n    line-height: 1.6;\n    color: #212529;\n    text-align: left;\n    background-color: #f8fafc;\n}\n\n.custom-navbar {\n    color:white;\n    background-color: #FFB746;\n    padding-left: 10px;\n    padding-right:  10px;\n}\n\n.custom-navbar-title {\n    font-size: 1.4rem;\n    font-weight: 600;\n}\n\n.custom-navbar-item {\n    font-size: 1.3rem;\n    font-weight: 500;\n    text-underline: none;\n    text-decoration: none;\n\n}\n\n.button-confirm {\n    background-color: #00A8FF;\n    color: white;\n}\n\n.quiz {\n    margin-top:20px;\n    margin-bottom: 5px;\n    padding: 20px;\n    border: 0.8px solid #cccccc;\n    border-radius: 16px;\n    box-shadow: 1px 1px #888888  ;\n\n}\n\n.quiz-header {\n    font-size: 2.5rem ;\n    font-weight: 800;\n    margin: 10px 10px 0px;\n}\n\n.description {\n    color: grey;\n    font-size: medium;\n    margin-top: 0px;\n    padding-top: 0px;\n    margin-bottom: 10px;\n    font-weight: 100;\n}\n\n.question-title {\n    font-size: 1.7rem;\n\n}\n\n.question-score {\n    /*font-size: medium;*/\n    float: right;\n    font-size: 1.4rem;\n}\n\n.option {\n    font-size: 1.4rem;\n}\n\n.question {\n    margin-top:20px;\n    margin-bottom: 5px;\n    padding: 20px;\n    border: 0.4px solid #cccccc;\n    border-radius: 16px;\n    background-color: white;\n    box-shadow: 0.5px 0.5px #888888;\n}\n\n.align-right {\n    display: flex ;\n    flex-direction: row;\n    align-content: flex-end;\n    justify-content: flex-end;\n}\n\n.align-bottom-right {\n    position: absolute;\n    right: 0px ;\n    bottom: 0px;\n}\n\n.auth-wrapper {\n    display: flex;\n    justify-content: center;\n    flex-direction: column;\n    text-align: left;\n}\n\n.auth-inner {\n    width: 450px;\n    margin: auto;\n    background: #ffffff;\n    box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2);\n    padding: 40px 55px 45px 55px;\n    border-radius: 15px;\n    transition: all .3s;\n}\n\n.title {\n    font-weight: 400;\n    font-size: 1.5rem;\n}\n\n\n.flex-row{\n    display: flex;\n    flex-direction: row;\n}\n\n.flex-column{\n    display: flex;\n    flex-direction: column;\n}\n\n.forgot-password,\n.forgot-password a {\n    text-align: right;\n    font-size: 13px;\n    padding-top: 10px;\n    color: #7f7d7d;\n    margin: 0;\n}\n\n.blur{\n    height: 100%;\n    width: 100%;\n    background: black;\n    -webkit-filter: blur(4px);\n            filter: blur(4px);\n}\n\n.error{\n    color: red;\n}\n", ""]);
 
 // exports
 
@@ -73421,7 +73421,7 @@ var Auth = /*#__PURE__*/function () {
       var authenticated = localStorage.getItem(IS_AUTHENTICATED);
 
       if (authenticated) {
-        console.log(authenticated);
+        // console.log(authenticated)
         this.authenticated = JSON.parse(authenticated);
         return this.authenticated;
       } else {
@@ -73771,16 +73771,17 @@ var EditChoices = function EditChoices(props) {
   var ele = [];
   var choiceOrder = 1;
   var choices = props.options;
-  console.log(choices);
 
-  for (var i = 0; i < choices.length; i++) {
-    if (choices[i].choice_order == choiceOrder) {
-      ele.push( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_EditChoice__WEBPACK_IMPORTED_MODULE_1__["default"], {
-        key: i,
-        option: choices[i].choice,
-        checked: choices[i].is_correct
-      }));
-      choiceOrder += 1;
+  while (choiceOrder <= choices.length) {
+    for (var i = 0; i < choices.length; i++) {
+      if (choices[i].choice_order == choiceOrder) {
+        ele.push( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_EditChoice__WEBPACK_IMPORTED_MODULE_1__["default"], {
+          key: i,
+          option: choices[i].choice,
+          checked: choices[i].is_correct
+        }));
+        choiceOrder += 1;
+      }
     }
   }
 
@@ -73838,10 +73839,8 @@ var EditQuestion = function EditQuestion(props) {
 
   var handleBlur = function handleBlur(data) {};
 
-  console.log("question ");
-  console.log(props);
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: 'mx-5 question',
+    className: 'question',
     style: {
       display: "flex",
       flexDirection: 'column'
@@ -73854,6 +73853,10 @@ var EditQuestion = function EditQuestion(props) {
       margin: '0px',
       padding: '0px'
     }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    style: {
+      width: '100%'
+    }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
     type: "text",
     placeholder: "Question",
@@ -73864,13 +73867,15 @@ var EditQuestion = function EditQuestion(props) {
     },
     name: 'question',
     className: "question-title",
-    onChange: function onChange() {},
+    onChange: props.onChange,
     ref: register,
     disabled: props.disabled
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Choice_EditChoices__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    options: props.question.answers
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     style: {
       width: "10%",
-      marginLeft: '20px'
+      marginLeft: '30px'
     },
     className: "align-score"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
@@ -73885,12 +73890,10 @@ var EditQuestion = function EditQuestion(props) {
     value: props.question.max_score,
     className: "question-score",
     ref: register,
-    onChange: function onChange() {}
+    onChange: props.onChange
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
     style: {}
-  }, "Score"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Choice_EditChoices__WEBPACK_IMPORTED_MODULE_4__["default"], {
-    options: props.question.answers
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_shared_Button__WEBPACK_IMPORTED_MODULE_3__["default"], {
+  }, "Score"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_shared_Button__WEBPACK_IMPORTED_MODULE_3__["default"], {
     className: 'align-bottom-right',
     text: 'Answer Key',
     onClick: function onClick() {}
@@ -73915,7 +73918,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Section_EditSection__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Section/EditSection */ "./resources/js/components/Section/EditSection.js");
 /* harmony import */ var _Question_EditQuestion__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Question/EditQuestion */ "./resources/js/components/Question/EditQuestion.js");
 /* harmony import */ var _Section_Section__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../Section/Section */ "./resources/js/components/Section/Section.js");
+/* harmony import */ var _QuizFooter__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./QuizFooter */ "./resources/js/components/Quiz/QuizFooter.js");
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
 
 
 
@@ -73928,17 +73933,23 @@ var QuizBody = function QuizBody(props) {
   // const [state, setState] = useState();
   var data = props.data.data;
   var ele = [];
+  var order = 1;
 
   if (data) {
-    for (var i = 0; i < data.length; i++) {
-      ele.push( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Section_Section__WEBPACK_IMPORTED_MODULE_3__["default"], _extends({
-        key: i,
-        section: data[i]
-      }, props)));
+    while (order < data.length) {
+      for (var i = 0; i < data.length; i++) {
+        if (data[i].section_order == order) {
+          ele.push( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Section_Section__WEBPACK_IMPORTED_MODULE_3__["default"], _extends({
+            key: i,
+            section: data[i]
+          }, props)));
+          order += 1;
+        }
+      }
     }
   }
 
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, ele);
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, ele, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_QuizFooter__WEBPACK_IMPORTED_MODULE_4__["default"], props));
   /* return(
        <Fragment>
            <EditSection {...props} />
@@ -74110,7 +74121,6 @@ var QuizInfoDialog = function QuizInfoDialog(props) {
     padding: "0px"
   };
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
-    console.log(props);
     setTitle(props.data.title);
     setDescription(props.data.description);
   }, []);
@@ -74119,19 +74129,19 @@ var QuizInfoDialog = function QuizInfoDialog(props) {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: 'input-field'
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-    name: "quiz_title",
+    name: "title",
     type: "text",
     className: "validate title",
     placeholder: "Title",
     value: props.data.title,
     disabled: props.disabled,
-    onChange: function onChange() {},
+    onChange: props.onChange,
     style: inputStyle,
     ref: register
   }), errors.quiz_title && errors.quiz_title.message), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: 'input-field'
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-    name: "quiz_description",
+    name: "description",
     type: "text",
     placeholder: "Description",
     className: "validate",
@@ -74139,7 +74149,7 @@ var QuizInfoDialog = function QuizInfoDialog(props) {
     style: inputStyle,
     value: props.data.description,
     ref: register,
-    onChange: function onChange() {}
+    onChange: props.onChange
   }), errors.quiz_description && errors.quiz_description.message)));
 };
 
@@ -74210,25 +74220,36 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _pages_util__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../pages/util */ "./resources/js/pages/util.js");
+/* harmony import */ var react_hook_form__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-hook-form */ "./node_modules/react-hook-form/dist/react-hook-form.es.js");
+
 
 
 
 var StartDataInput = function StartDataInput(props) {
+  var _useForm = Object(react_hook_form__WEBPACK_IMPORTED_MODULE_2__["useForm"])(),
+      register = _useForm.register,
+      handleSubmit = _useForm.handleSubmit,
+      watch = _useForm.watch,
+      errors = _useForm.errors;
+
   var myStyle = {
     whiteSpace: 'nowrap',
     padding: '5px 15px 5px 25px'
   };
+  console.log(props);
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: 'mt-4',
     style: myStyle
   }, "Date:"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
     className: "form-control",
-    value: Object(_pages_util__WEBPACK_IMPORTED_MODULE_1__["getLocalDate"])(props.data.start_time),
+    name: "start_date"
+    /*value={getLocalDate(props.data.start_time)}*/
+    ,
+    value: props.data.start_date,
     type: "date",
     disabled: props.disabled,
-    onChange: function onChange(event) {
-      console.log(event);
-    }
+    onChange: props.onChange,
+    ref: register
   }));
 };
 
@@ -74248,10 +74269,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _pages_util__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../pages/util */ "./resources/js/pages/util.js");
+/* harmony import */ var react_hook_form__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-hook-form */ "./node_modules/react-hook-form/dist/react-hook-form.es.js");
+
 
 
 
 var StartTimeInput = function StartTimeInput(props) {
+  var _useForm = Object(react_hook_form__WEBPACK_IMPORTED_MODULE_2__["useForm"])(),
+      register = _useForm.register,
+      handleSubmit = _useForm.handleSubmit,
+      watch = _useForm.watch,
+      errors = _useForm.errors;
+
   var myStyle = {
     whiteSpace: 'nowrap',
     padding: '5px 15px 5px 25px'
@@ -74260,13 +74289,15 @@ var StartTimeInput = function StartTimeInput(props) {
     className: 'mt-4',
     style: myStyle
   }, "Start time:"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-    className: "form-control",
-    value: Object(_pages_util__WEBPACK_IMPORTED_MODULE_1__["getLocalTime"])(props.data.start_time),
+    className: "form-control"
+    /*value={getLocalTime(props.data.start_time)}*/
+    ,
+    value: props.data.start_time,
     type: "time",
     disabled: props.disabled,
-    onChange: function onChange(date) {
-      return console.log(date);
-    }
+    onChange: props.onChange,
+    ref: register,
+    name: "start_time"
   }));
 };
 
@@ -74285,9 +74316,17 @@ var StartTimeInput = function StartTimeInput(props) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_hook_form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-hook-form */ "./node_modules/react-hook-form/dist/react-hook-form.es.js");
+
 
 
 var TotalTimeInput = function TotalTimeInput(props) {
+  var _useForm = Object(react_hook_form__WEBPACK_IMPORTED_MODULE_1__["useForm"])(),
+      register = _useForm.register,
+      handleSubmit = _useForm.handleSubmit,
+      watch = _useForm.watch,
+      errors = _useForm.errors;
+
   var myStyle = {
     whiteSpace: 'nowrap',
     padding: '5px 15px 5px 25px'
@@ -74297,9 +74336,12 @@ var TotalTimeInput = function TotalTimeInput(props) {
     style: myStyle
   }, "Total time :"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
     type: "number",
+    name: "total_time",
     value: props.data.total_time,
     className: "form-control",
-    disabled: props.disabled
+    disabled: props.disabled,
+    onChange: props.onChange,
+    ref: register
   }));
 };
 
@@ -74464,13 +74506,15 @@ var Section = function Section(props) {
 
   if (isEdit) {
     if (questions) {
-      for (var i = 0; i < questions.length; i++) {
-        if (questions[i].question_order == order) {
-          ele.push( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Question_EditQuestion__WEBPACK_IMPORTED_MODULE_2__["default"], _extends({
-            key: i,
-            question: questions[i]
-          }, props)));
-          order += 1;
+      while (order < questions.length) {
+        for (var i = 0; i < questions.length; i++) {
+          if (questions[i].question_order == order) {
+            ele.push( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Question_EditQuestion__WEBPACK_IMPORTED_MODULE_2__["default"], _extends({
+              key: i,
+              question: questions[i]
+            }, props)));
+            order += 1;
+          }
         }
       }
     }
@@ -75094,6 +75138,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var materialize_css_dist_css_materialize_min_css__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! materialize-css/dist/css/materialize.min.css */ "./node_modules/materialize-css/dist/css/materialize.min.css");
 /* harmony import */ var materialize_css_dist_css_materialize_min_css__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(materialize_css_dist_css_materialize_min_css__WEBPACK_IMPORTED_MODULE_9__);
 /* harmony import */ var _useFetch__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../useFetch */ "./resources/js/useFetch.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -75162,10 +75212,7 @@ function EditQuizPage(props, location) {
   };
 
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
-    // console.log(id)
-    // console.log(props)
-    console.log('use effect'); //post request
-
+    //post request
     axios.get("/api/quiz/".concat(id)).then(function (result) {
       console.log(result);
       setQuiz(result.data.attributes);
@@ -75179,19 +75226,40 @@ function EditQuizPage(props, location) {
 
   var handleAddSection = function handleAddSection() {};
 
+  var handleQuizInfoChange = function handleQuizInfoChange(event) {
+    setQuiz(_objectSpread(_objectSpread({}, quiz), {}, _defineProperty({}, event.target.name, event.target.value)));
+  };
+
+  var handleSectionChange = function handleSectionChange(event) {
+    console.log(event); // console.log(event.target.name)
+    // console.log(event.target.value)
+    // setSections(...sections)
+  };
+
+  var handleQuestionChange = function handleQuestionChange(event) {
+    console.log(event);
+    console.log(event.target.name);
+    console.log(event.target.value);
+  };
+
+  var handleChoicesChange = function handleChoicesChange() {};
+
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_navbar_Navbar__WEBPACK_IMPORTED_MODULE_2__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "flex-center position-ref full-height container quiz"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Quiz_QuizHeader__WEBPACK_IMPORTED_MODULE_6__["default"], {
     disabled: disabled,
     data: quiz,
-    isEdit: true
+    isEdit: true,
+    onChange: function onChange(e) {
+      return handleQuizInfoChange(e);
+    }
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Quiz_QuizBody__WEBPACK_IMPORTED_MODULE_8__["default"], {
     disabled: disabled,
     data: sections,
-    isEdit: true
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Quiz_QuizFooter__WEBPACK_IMPORTED_MODULE_7__["default"], {
-    disabled: disabled,
-    isEdit: true
+    isEdit: true,
+    onChange: function onChange(e) {
+      return handleSectionChange(e);
+    }
   })));
 }
 
