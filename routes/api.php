@@ -28,6 +28,11 @@ Route::get('quiz/{quiz_id}/answer/{respondent_id}', [
     'as'=> 'quiz.answer'
 ]);
 
+Route::get('/user/{user_id}/quiz', [
+    'uses'=> QuizController::class.'@index',
+    'as'=> 'quiz.list'
+]);
+
 Route::post('quiz/answer/', 'ResponseController@store');
 
 Route::apiResource('quiz/{quiz_id}/answer', ResponseController::class);

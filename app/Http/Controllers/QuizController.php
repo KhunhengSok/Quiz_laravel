@@ -26,11 +26,11 @@ class QuizController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($user_id)
     {
 
         //        Auth::user;
-        $user_id = 1;
+//        $user_id = 1;
         $user = User::where('id', $user_id)->with(['quizzes', 'quizzes.sections', 'quizzes.sections.questions','quizzes.sections.questions.answers'])->paginate();
 //        return new UserResource($user);
         return UserResource::collection($user);
@@ -56,6 +56,7 @@ class QuizController extends Controller
      */
     public function store(Request $request)
     {
+//        print($id);
         //retrieving value
         $quiz = $request->json('quiz');
         $sections = $request->json('sections');
@@ -116,11 +117,15 @@ class QuizController extends Controller
             foreach ($choices as $choice) {
                 $question_id = -1 ;
                 foreach ($questionObjects as $question){
-                    if($question->question_order == $choice['question_order']){
+//                    if($question->question_order == $choice['question_order']){
+                    $sectionId = Section::where(['quiz_id' => $quiz_id, 'section_order' => $choice['section_order']])->first()->id;
+                    if($question->question_order == $choice['question_order'] && $sectionId == $question->section_id){
                         $question_id = $question->id;
                         break;
                     }
                 }
+                unset($choice['section_order']);
+
                 if($question_id != -1){
                     try{
                         $answer = new AnswerChoice();

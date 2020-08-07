@@ -1,39 +1,48 @@
-import React, {useEffect, useState} from 'react';
+import React, {Fragment, useEffect, useState} from 'react';
 import EditChoices from "../Choice/EditChoices";
 import Button from "../shared/Button";
 
 const QuizComponent = (props) => {
     const [quiz, setQuiz] = useState({})
 
-    useEffect( ()=> {
-        axios.get(`/api/quiz/${id}`).then(result => {
-            console.log(result);
-            setQuiz(result.data.attributes)
-        }).catch(err => {
-            console.log(err);
-        })
-    }, [])
+    /* useEffect(() => {
+         axios.get(`/api/quiz/${id}`).then(result => {
+             console.log(result);
+             setQuiz(result.data.attributes)
+         }).catch(err => {
+             console.log(err);
+         })
+     }, [])*/
+
+
+    /*  title
+      description
+      Total score:
+
+          published date
+      dateline*/
 
     return (
-        <Fragment>
-            <div className={'mx-5 question'} style={{display: "flex", flexDirection: 'column'}}>
-                <div style={{display: 'flex', flexDirection: 'row', marginRight: '20px', margin: '0px', padding: '0px'}}>
-                    <div >
-                        <input type="text" placeholder="Question" value={props.question.question} style={{margin: "0p", paddingLeft: "10px"}}
-                               name={'question'} className="question-title" onChange={() => {}} ref={register} disabled={props.disabled}/>
-                        <EditChoices options={props.question.answers} />
-                    </div>
-
-                    <div style={{width: "10%", marginLeft: '30px'}} className="align-score">
-                        {/*<label htmlFor='score'>Score: </label>*/}
-                        <input id='score' name={'max_score'} type="number" style={{margin: '0px', padding: '0px'}} disabled={props.disabled}
-                               value={props.question.max_score} className="question-score" ref={register} onChange={() => {}}/>
-                        <p style={{} }>Score</p>
-                    </div>
+        <div className={'question'} style={{display: "flex", flexDirection: 'row'}}>
+            <div className={'flex-column'} style={{marginRight:'20px'}}>
+                <span className={"title"}>{props.quiz.title}</span>
+                <span style={{marginBottom: "20px"}}>{props.quiz.description}</span>
+                <div style={{marginTop: "auto"}}>
+                    <span>Total time: </span>
+                    <span>{props.quiz.total_time}</span>
                 </div>
-
-                <Button className={'align-bottom-right'} text={'Answer Key'} onClick={() => {}}/>
             </div>
-        </Fragment>
+            <div className={'flex-column'} style={{marginLeft: "auto"}}>
+                <span className={'no-wrap'}>Published date:</span>
+                <span className={'no-wrap'}>{props.quiz.published_date}</span>
+                <div style={{marginTop: "auto"}} className={'no-wrap'}>
+                    <span>Deadline:  </span>
+                    <span id={'deadline'}>xxxxx</span>
+                </div>
+            </div>
+
+        </div>
     )
 }
+
+export default QuizComponent

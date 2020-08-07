@@ -12,7 +12,7 @@ const EditChoices = (props) => {
     while(choiceOrder <= choices.length  ){
         for(let i =0; i<choices.length; i++){
             if(choices[i].choice_order == choiceOrder){
-                ele.push( <EditChoice key={i} option={choices[i].choice} checked={choices[i].is_correct} />)
+                ele.push( <EditChoice key={i}  option={choices[i].choice} choiceKey={i} checked={choices[i].is_correct} choiceOrder={choiceOrder} {...props}/>)
                 choiceOrder +=1
             }
         }
@@ -23,7 +23,6 @@ const EditChoices = (props) => {
     return (
         <div>
             <form>
-               
                 {ele}
             </form>
         </div>

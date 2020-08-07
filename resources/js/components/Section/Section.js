@@ -13,12 +13,14 @@ const Section = (props) => {
     let ele = []
     let order = 1
 
+    let score = 0
     if (isEdit) {
         if (questions) {
-            while(order < questions.length){
+            while(order <= questions.length){
                 for (let i = 0; i < questions.length; i++) {
                     if(questions[i].question_order == order){
-                        ele.push(<EditQuestion key={i} question={questions[i]} {...props} />)
+                        score += parseInt(questions[i].max_score)
+                        ele.push(<EditQuestion key={i} question={questions[i]} {...props} questionKey={i}/>)
                         order +=1
                     }
                 }
@@ -31,7 +33,7 @@ const Section = (props) => {
     if (isEdit) {
         return (
             <Fragment>
-                <EditSection section={props.data} {...props}/>
+                <EditSection section={props.data} {...props} score={score}/>
                 {ele}
             </Fragment>
         )

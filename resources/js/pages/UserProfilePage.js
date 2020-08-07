@@ -4,13 +4,26 @@ import Button from "../components/shared/Button";
 import Auth from "../Auth";
 import {Redirect, Link} from 'react-router-dom';
 import PageNotFound from "./NotFoundPage";
+import QuizComponent from './../components/Profile/QuizComponent'
 
-const UserProfilePage = () => {
+const UserProfilePage = (props) => {
     const [isLoggedIn, setLoggedIn] = useState(Auth.isAuthenticated())
     const [isRedirect, setRedirect] = useState(false)
+    const [quiz, setQuiz] = useState([])
+
 
     useEffect(() => {
         setLoggedIn(Auth.isAuthenticated())
+
+        console.log('use effect')
+        let id = Auth.getUser().id
+        axios.get(`/api/user/${id}/quiz`).then(result => {
+            setQuiz(result.data.data[0].quizzes)
+            console.log(result.data.data[0].quizzes)
+        }).catch(err => {
+            console.log(err);
+        })
+
     }, [])
 
     const handleLogOut = () => {
@@ -18,17 +31,24 @@ const UserProfilePage = () => {
         setRedirect(true);
     }
 
-    if(isRedirect){
-        return <Redirect to='/' />
+    if (isRedirect) {
+        return <Redirect to='/'/>
     }
 
     if (isLoggedIn == true) {
+        let ele = []
+        for (let i =0 ; i<quiz.length; i++) {
+            ele.push(<QuizComponent quiz={quiz[i]} key={i}/>)
+        }
+
         return (
             <div>
                 <Navbar/>
                 <div className={'container'}>
-                    <h1>Profile Page</h1>
-                    <Button onClick={handleLogOut} text={'Log out'}/>
+                    {/*<h1>Profile Page</h1>
+                    <Button onClick={handleLogOut} text={'Log out'}/>*/}
+                    {/*<QuizComponent quiz={}/>*/}
+                    {ele}
                 </div>
             </div>
         );
@@ -41,7 +61,5 @@ const UserProfilePage = () => {
     }
 
 }
-
-UserProfilePage.propTypes = {};
 
 export default UserProfilePage;

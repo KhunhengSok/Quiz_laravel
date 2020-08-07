@@ -132,6 +132,17 @@ class Auth {
         localStorage.setItem(USER, JSON.stringify(user))
     }
 
+    getToken(){
+        let token =  localStorage.getItem(TOKEN)
+        token = JSON.parse(token)
+        return token.access_token
+    }
+
+    getUser(){
+        let user = localStorage.getItem(USER)
+        user = JSON.parse(user)
+        return user
+    }
 }
 
 

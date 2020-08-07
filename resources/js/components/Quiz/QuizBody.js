@@ -20,12 +20,14 @@ const QuizBody = (props)=>{
         while(order < data.length ){
             for(let i=0 ; i<data.length; i++){
                 if(data[i].section_order == order){
-                    ele.push(<Section key={i} section={data[i]} {...props} />)
+                    ele.push(<Section key={i} section={data[i]} {...props} sectionKey={i}  />)
                     order +=1
                 }
             }
         }
     }
+
+
 
 
     return (
