@@ -16,14 +16,19 @@ const QuizBody = (props)=>{
     let ele = []
     let order = 1
 
+    // console.log(data)
     if(data){
         while(order < data.length ){
             for(let i=0 ; i<data.length; i++){
+                console.log('run')
                 if(data[i].section_order == order){
                     ele.push(<Section key={i} section={data[i]} {...props} sectionKey={i}  />)
                     order +=1
                 }
             }
+        }
+        if(props.isEdit){
+            ele.push(<QuizFooter {...props}/>)
         }
     }
 
@@ -33,7 +38,6 @@ const QuizBody = (props)=>{
     return (
         <Fragment>
             {ele}
-            <QuizFooter {...props}/>
         </Fragment>
 
     )

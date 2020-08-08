@@ -99,7 +99,7 @@ class Auth {
                 axios.get('/api/auth/me',
                     {
                         headers: {
-                            "Authorization": 'Bearer ' + token.access_token
+                            "Authorizat ion": 'Bearer ' + token.access_token
                         }
                     }
                 ).then(result => {
@@ -133,8 +133,7 @@ class Auth {
     }
 
     getToken(){
-        let token =  localStorage.getItem(TOKEN)
-        token = JSON.parse(token)
+        let token = JSON.parse(localStorage.getItem(TOKEN))
         return token.access_token
     }
 

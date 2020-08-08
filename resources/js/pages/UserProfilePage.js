@@ -17,6 +17,7 @@ const UserProfilePage = (props) => {
 
         console.log('use effect')
         let id = Auth.getUser().id
+        console.log(`user id ${id} `)
         axios.get(`/api/user/${id}/quiz`).then(result => {
             setQuiz(result.data.data[0].quizzes)
             console.log(result.data.data[0].quizzes)
@@ -45,10 +46,11 @@ const UserProfilePage = (props) => {
             <div>
                 <Navbar/>
                 <div className={'container'}>
-                    {/*<h1>Profile Page</h1>
-                    <Button onClick={handleLogOut} text={'Log out'}/>*/}
+                    {/*<h1>Profile Page</h1>&/}
                     {/*<QuizComponent quiz={}/>*/}
                     {ele}
+                    <Button onClick={handleLogOut} style={{float: 'right'}} text={'Log out'}/>
+
                 </div>
             </div>
         );

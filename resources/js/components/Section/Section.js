@@ -14,7 +14,8 @@ const Section = (props) => {
     let order = 1
 
     let score = 0
-    if (isEdit) {
+    console.log(props)
+    // if (isEdit) {
         if (questions) {
             while(order <= questions.length){
                 for (let i = 0; i < questions.length; i++) {
@@ -26,9 +27,9 @@ const Section = (props) => {
                 }
             }
         }
-    } else {
-
-    }
+    // } else {
+    //
+    // }
 
     if (isEdit) {
         return (
@@ -40,7 +41,10 @@ const Section = (props) => {
     } else {
         return (
             <Fragment>
-
+                <Fragment>
+                    <EditSection section={props} {...props} score={score}/>
+                    {ele}
+                </Fragment>
             </Fragment>
         )
     }

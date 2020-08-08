@@ -19,6 +19,7 @@ class QuizController extends Controller
     public function __construct()
     {
 //        $this->middleware('auth', ['except'=>['store', 'update', 'destroy']]);
+//        $this->middleware('auth', ['include'=>['store']]);
     }
 
     /**
@@ -58,16 +59,17 @@ class QuizController extends Controller
     {
 //        print($id);
         //retrieving value
+        $user_id = $request->json('user_id');
         $quiz = $request->json('quiz');
         $sections = $request->json('sections');
         $questions = $request->json('questions');
         $choices = $request->json('choices');
 
-        try{
+        /*try{
             $user_id = auth()->user()->id;
         }catch (\Exception $e){
             $user_id = 1;  // need to change
-        }
+        }*/
 
         $quiz['owner_id'] = $user_id; //needed
         $newQuiz = new Quiz();

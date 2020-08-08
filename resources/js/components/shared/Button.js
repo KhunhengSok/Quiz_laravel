@@ -10,7 +10,7 @@ class Button extends PureComponent {
     render() {
         return (
             <div>
-                <button className="btn button-confirm m-2" onClick={() => {this.props.onClick()}}>{this.props.text}</button>
+                <button className="btn button-confirm m-2 no-wrap" onClick={(e) => {this.props.onClick(e)}}>{this.props.text}</button>
             </div>
 
         );

@@ -1,6 +1,7 @@
 import React, {Fragment, useEffect, useState} from 'react';
 import EditChoices from "../Choice/EditChoices";
 import Button from "../shared/Button";
+import {Link} from "react-router-dom";
 
 const QuizComponent = (props) => {
     const [quiz, setQuiz] = useState({})
@@ -21,6 +22,10 @@ const QuizComponent = (props) => {
 
           published date
       dateline*/
+    const onTakeQuizButtonClick = (event) =>{
+
+    }
+
 
     return (
         <div className={'question'} style={{display: "flex", flexDirection: 'row'}}>
@@ -33,11 +38,17 @@ const QuizComponent = (props) => {
                 </div>
             </div>
             <div className={'flex-column'} style={{marginLeft: "auto"}}>
-                <span className={'no-wrap'}>Published date:</span>
-                <span className={'no-wrap'}>{props.quiz.published_date}</span>
-                <div style={{marginTop: "auto"}} className={'no-wrap'}>
+                <div className={'no-wrap'}>
                     <span>Deadline:  </span>
                     <span id={'deadline'}>xxxxx</span>
+                </div>
+
+                <div  style={{marginTop: "auto", display: 'flex', flexDirection:'row'}}>
+                    <Link to={`/quiz/${props.quiz.id}`}>
+                        <Button  text={'Take Quiz'} onClick={()=>{}}/>
+                    </Link>
+                    <Button text={'Detail'} onClick={ ()=>{}}/>
+
                 </div>
             </div>
 

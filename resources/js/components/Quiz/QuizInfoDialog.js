@@ -45,13 +45,13 @@ const QuizInfoDialog = (props) => {
            <form>
                <div className={'input-field'}>
                    <input name="title" type="text" className="validate title" placeholder={"Title"}
-                          value={props.data.title} disabled={props.disabled} onChange={ props.onChange}
+                          value={props.data.title} disabled={!props.isEdit} onChange={ props.onChange}
                           style={inputStyle} ref={register}/>
                    {errors.quiz_title && errors.quiz_title.message}
                </div>
 
                <div className={'input-field'}>
-                   <input name="description" type="text" placeholder="Description" className="validate" disabled={props.disabled}
+                   <input name="description" type="text" placeholder="Description" className="validate" disabled={!props.isEdit}
                           style={inputStyle} value={props.data.description} ref={register} onChange={props.onChange}/>
                    {errors.quiz_description && errors.quiz_description.message}
                </div>

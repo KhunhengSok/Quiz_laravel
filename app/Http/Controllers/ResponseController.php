@@ -70,6 +70,7 @@ class ResponseController extends Controller
             ]);
             $quizRespondent->save();
 
+            $total_score =  0;
             foreach ($answers as $answer){
                 $choice = AnswerChoice::where('id', $answer['chosen_choice_id'])->first();
                 $scored = 0;
@@ -78,6 +79,7 @@ class ResponseController extends Controller
                     if($question != null){
                         $maxScore = $question->max_score;
                         $scored = $maxScore;
+                        $total_score += $scored;
                     }
                 }
 
@@ -91,7 +93,9 @@ class ResponseController extends Controller
                 ]);
                 $response->save();
             }
-            return \response(null, 201);
+            return \response([
+                'total_score' => $total_score
+            ], 201);
         }catch(\Exception $e){
             return \response($e->getMessage(), 400);
         }

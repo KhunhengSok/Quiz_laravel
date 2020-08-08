@@ -11,6 +11,8 @@ import './../../public/css/style.css'
 // import './../../public/css/apwp.css'
 import NotFoundPage from "./pages/NotFoundPage";
 import UserProfilePage from "./pages/UserProfilePage";
+import QuizTakingPage from "./pages/QuizTakingPage";
+import ResultPage from "./pages/ResultPage";
 
 class Index extends Component {
     render() {
@@ -22,10 +24,11 @@ class Index extends Component {
                     <Route path='/signup' exact render={() => <SignUpPage/>}/>
                     {/*<Route path='/quiz/create' exact render={() => <CreateQuizPage/>}/>*/}
                     <Route path='/quiz/create' exact render={() => <EditQuizPage/>}/>
-                    {/*<Route path='/quiz/:id' exact render={()=> <EditQuizPage />} />*/}
-                    <Route path='/quiz/:id/edit' exact render={()=> <EditQuizPage />} />
+                    <Route path='/quiz/:id' exact render={()=> <QuizTakingPage />} />
+                    {/*<Route path='/quiz/:id/edit' exact render={()=> <EditQuizPage />} />*/}
                     <Route path='/forget_password' exact render={ ()=> <ForgetPasswordPage />} />
                     <Route path='/profile' exact render={ ()=> <UserProfilePage /> } />
+                    <Route path='/result/:id' exact render={ ()=> <ResultPage /> } />
                     <Route path='*' render={ ()=> <NotFoundPage /> } />
 
                 </Switch>

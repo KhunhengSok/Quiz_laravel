@@ -3,7 +3,7 @@ import axios from 'axios'
 
 
 import Navbar from "../components/navbar/Navbar";
-import {Redirect, useParams} from 'react-router-dom'
+import {Redirect, useParams, useHistory} from 'react-router-dom'
 import QuizInfoDialog from "../components/Quiz/QuizInfoDialog";
 import QuizTime from "../components/Quiz/QuizTime";
 import QuizHeader from "../components/Quiz/QuizHeader";
@@ -32,6 +32,7 @@ function EditQuizPage(props, location) {
         data: []
     })
     const {data, loading} = useFetch(`/api/quiz/${id}`)
+    const history = useHistory()
 
 
     useEffect(() => {
@@ -51,14 +52,14 @@ function EditQuizPage(props, location) {
 
     }
 
-    const handleSectionChange = (event, sectionKey, questionKey, choiceKey, isOptionClick=false) => {
-        if(isOptionClick){
+    const handleSectionChange = (event, sectionKey, questionKey, choiceKey, isOptionClick = false) => {
+        if (isOptionClick) {
             let key = event.target.name
             let choice = sections.data[sectionKey].questions[questionKey].answers[choiceKey]
             let choices = sections.data[sectionKey].questions[questionKey].answers
 
-            for(let i=0; i<choices.length ;i++){
-                choices[i].is_correct=0
+            for (let i = 0; i < choices.length; i++) {
+                choices[i].is_correct = 0
             }
             choice.is_correct = 1
             setSections({
@@ -66,7 +67,7 @@ function EditQuizPage(props, location) {
             })
         }
 
-        if (typeof sectionKey!=='undefined' && typeof questionKey!=='undefined' && typeof choiceKey!=='undefined') {
+        if (typeof sectionKey !== 'undefined' && typeof questionKey !== 'undefined' && typeof choiceKey !== 'undefined') {
             let key = event.target.name
             let choice = sections.data[sectionKey].questions[questionKey].answers[choiceKey]
             choice[key] = event.target.value
@@ -74,14 +75,14 @@ function EditQuizPage(props, location) {
                 ...sections,
             })
 
-        } else if ( typeof sectionKey!=='undefined' && typeof questionKey!=='undefined') {
+        } else if (typeof sectionKey !== 'undefined' && typeof questionKey !== 'undefined') {
             let key = event.target.name
             let question = sections.data[sectionKey].questions[questionKey]
             question[key] = event.target.value
             setSections({
                 ...sections,
             })
-        } else if (typeof sectionKey!=='undefined') {
+        } else if (typeof sectionKey !== 'undefined') {
             let key = event.target.name
             let section = sections.data[sectionKey]
             section[key] = event.target.value
@@ -98,10 +99,10 @@ function EditQuizPage(props, location) {
         let section = sections_[len - 1]
         let questions = section.questions
 
-        for(let i=0; i<4; i++){
+        for (let i = 0; i < 4; i++) {
             let choice = {
-                'choice' :'',
-                'choice_order': i+1,
+                'choice': '',
+                'choice_order': i + 1,
                 'description': '',
                 'is_correct': 0,
             }
@@ -114,7 +115,7 @@ function EditQuizPage(props, location) {
             'question_order': questions.length + 1
         }
 
-        sections.data[len-1].questions.push(question)
+        sections.data[len - 1].questions.push(question)
         setSections({
             ...sections,
         })
@@ -122,8 +123,8 @@ function EditQuizPage(props, location) {
 
     const handleAddSection = (event) => {
         let length = 0
-        if(typeof sections.data !== 'undefined'){
-            length =  sections.data.length
+        if (typeof sections.data !== 'undefined') {
+            length = sections.data.length
         }
 
         let section = {
@@ -143,13 +144,13 @@ function EditQuizPage(props, location) {
     }
 
 
-    const getSectionsFromState = ()=> {
+    const getSectionsFromState = () => {
         let s = sections.data
         let data = []
-        for(let i=0; i<s.length; i++){
+        for (let i = 0; i < s.length; i++) {
             let object = {
                 'title': s[i].title,
-                'section_order': s[i].section_order ,
+                'section_order': s[i].section_order,
                 'description': s[i].description
             }
             data.push(object)
@@ -158,16 +159,16 @@ function EditQuizPage(props, location) {
     }
 
     const getQuestionsFromState = () => {
-        let data = [ ]
+        let data = []
         let s = sections.data
-        for(let i=0; i<s.length; i++){
+        for (let i = 0; i < s.length; i++) {
             let q = s[i].questions
-            for(let j =0 ;j<q.length; j ++){
+            for (let j = 0; j < q.length; j++) {
                 let object = {
                     'question': q[j].question,
                     'section_order': s[i].section_order,
                     'question_order': q[j].question_order,
-                    'max_score':  q[j].max_score,
+                    'max_score': q[j].max_score,
                 }
                 data.push(object)
             }
@@ -175,14 +176,14 @@ function EditQuizPage(props, location) {
         return data
     }
 
-    const getChoicesFromState = ()=> {
-        let data = [ ]
+    const getChoicesFromState = () => {
+        let data = []
         let s = sections.data
-        for(let i=0; i<s.length; i++){
+        for (let i = 0; i < s.length; i++) {
             let q = s[i].questions
-            for(let j =0 ;j<q.length; j ++){
+            for (let j = 0; j < q.length; j++) {
                 let a = q[j].answers
-                for(let k =0; k< a.length; k++){
+                for (let k = 0; k < a.length; k++) {
                     let object = {
                         'choice': a[k].choice,
                         'choice_order': a[k].choice_order,
@@ -192,15 +193,10 @@ function EditQuizPage(props, location) {
                     }
                     data.push(object)
                 }
-
-
             }
         }
         return data
     }
-
-
-
 
 
     const saveQuizClick = (event) => {
@@ -208,26 +204,29 @@ function EditQuizPage(props, location) {
         getQuestionsFromState()
         getChoicesFromState()
         let data = {
+            'user_id': Auth.getUser().id,
             'quiz': quiz,
             'sections': getSectionsFromState(),
             'questions': getQuestionsFromState(),
             'choices': getChoicesFromState()
         }
-        console.log(data)
         axios.post(
             '/api/quiz',
-              /*  headers: {
+            data, {
+                headers: {
                     "Authorization": 'Bearer ' + Auth.getToken()
-                }, data*/
-                data
-            ).then(
-                result => {
-                    console.log(result)
-                }
-            ).catch( e => {
-                console.log(e)
-                console.log(e.response)
-            })
+                },
+            }
+        ).then(
+            result => {
+                console.log(result)
+                history.push('profile')
+
+            }
+        ).catch(e => {
+            console.log(e)
+            console.log(e.response)
+        })
 
     }
 
@@ -239,7 +238,7 @@ function EditQuizPage(props, location) {
 
     }
 
-    const handleAnswerKeyButtonClick = (event)=> {
+    const handleAnswerKeyButtonClick = (event) => {
 
     }
 
@@ -248,8 +247,10 @@ function EditQuizPage(props, location) {
         <div>
             <Navbar/>
             <div className="flex-center position-ref full-height container quiz">
-                <QuizHeader disabled={disabled} data={quiz} isEdit={true} onChange={(e) => handleQuizInfoChange(e)} onSaveClick={saveQuizClick}/>
-                <QuizBody disabled={disabled} data={sections} isEdit={true} onChange={handleSectionChange} onAddSectionClick={handleAddSection} onAddQuestionClick={handleAddQuestion} edit={true}/>
+                <QuizHeader disabled={disabled} data={quiz} isEdit={true} onChange={(e) => handleQuizInfoChange(e)}
+                            onSaveClick={saveQuizClick}/>
+                <QuizBody disabled={disabled} data={sections} isEdit={true} onChange={handleSectionChange}
+                          onAddSectionClick={handleAddSection} onAddQuestionClick={handleAddQuestion} edit={true}/>
                 {/*<QuizFooter disabled={disabled} isEdit={true}/>*/}
             </div>
         </div>

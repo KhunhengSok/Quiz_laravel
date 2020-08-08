@@ -16,7 +16,6 @@ const SignUpPage = (props) => {
             console.log(data)
             setLoading(true)
             Auth.signup(data).then( result => {
-                console.log('signed up')
                 console.log(result)
                 Auth.storeAuthenticated(true);
                 Auth.storeToken(result.data.token);
@@ -30,6 +29,7 @@ const SignUpPage = (props) => {
                 )
             }).catch( err =>{
                 setLoading(false)
+                console.log(err.response)
                 if(err.response.status == 422){
                     setError(err.response.data.errors)
                 }

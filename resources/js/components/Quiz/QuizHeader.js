@@ -13,8 +13,6 @@ const QuizHeader = (props) => {
                 <h1 className="quiz-header">Create Quiz</h1>
                 <div className="m-2 align-right">
                     <Button text={"Save"} onClick={props.onSaveClick}/>
-                    {/*<Button text={"Publish"} onClick={() => {
-                    }}/>*/}
                 </div>
 
                 <QuizInfoDialog  {...props}/>
