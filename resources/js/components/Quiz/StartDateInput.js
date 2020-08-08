@@ -12,7 +12,6 @@ const StartDataInput = (props) => {
 
     }
 
-    console.log(props)
     return (
         <Fragment>
             <div className={'mt-4'} style={myStyle}>Date:</div>

@@ -18,9 +18,8 @@ const QuizBody = (props)=>{
 
     // console.log(data)
     if(data){
-        while(order < data.length ){
+        while(order <= data.length ){
             for(let i=0 ; i<data.length; i++){
-                console.log('run')
                 if(data[i].section_order == order){
                     ele.push(<Section key={i} section={data[i]} {...props} sectionKey={i}  />)
                     order +=1
@@ -42,14 +41,7 @@ const QuizBody = (props)=>{
 
     )
 
-   /* return(
-        <Fragment>
-            <EditSection {...props} />
-            <EditQuestion {...props}/>
-            <EditQuestion {...props}/>
-            <EditQuestion {...props} />
-        </Fragment>
-    )*/
+
 
 }
 

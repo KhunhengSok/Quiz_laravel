@@ -7,6 +7,7 @@ import {Redirect, useParams, useHistory} from 'react-router-dom'
 import QuizTakerInfo from "../components/Quiz/QuizTakerInfo";
 import QuizInfoDialog from "../components/Quiz/QuizInfoDialog";
 import Button from "../components/shared/Button";
+import ResultPage from "./ResultPage";
 
 
 const QuizTakingPage = (props)=>{
@@ -17,7 +18,12 @@ const QuizTakingPage = (props)=>{
     })
     let [sections, setSections] = useState({})
     let [quiz, setQuiz] = useState({})
+    let [total_score, setTotalScore] = useState(-1)
     let history = useHistory()
+    let [errors, setErrors] = useState({
+        'email': {},
+        'name': {}
+    })
 
     useEffect(()=>{
         Axios.get(`/api/quiz/${id}`).then(
@@ -52,17 +58,13 @@ const QuizTakingPage = (props)=>{
                 ...sections,
             })
         }
-        console.log(sections)
     }
 
     const getChosenChoicesFromState = ()=> {
         let data = [ ]
-        console.log('getting')
-        console.log(sections.data.length)
 
         for(let a =0; a<sections.data.length;  a++){
             let questions = sections.data[a].questions
-            console.log(questions)
 
             for (let i =0;i< questions.length; i++){
                 let choices = questions[i].answers
@@ -82,7 +84,33 @@ const QuizTakingPage = (props)=>{
         }
         return data
     }
+
     const onSubmitButtonClick = (event)=> {
+        if((respondent.email=='')) {
+            errors.email = {
+                message : "Email is Required"
+            }
+            setErrors(errors)
+
+        }else{
+            delete errors.email
+            setErrors(errors)
+        }
+
+        if((respondent.name=='')){
+            errors.name = {
+                message : "Name is Required"
+            }
+            setErrors(errors)
+
+        }else{
+            delete errors.name
+        }
+
+        if( !(_.isEmpty(errors))){
+            return
+        }
+
         let data = {
             'info': respondent,
             'quiz': {
@@ -90,17 +118,17 @@ const QuizTakingPage = (props)=>{
             },
             'answers':getChosenChoicesFromState()
         }
-        console.log(data)
 
         axios.post(`/api/quiz/${id}/answer`, data).then(
             result => {
                 console.log(result)
-                history.push({
+                setTotalScore(result.data.total_score)
+               /* history.push({
                     pathname: `/result/${id}`,
                     data: {
                         'total_score' : result.total_score
                     }
-                })
+                })*/
                 // <Link
             }
         ).catch( err => {
@@ -108,17 +136,24 @@ const QuizTakingPage = (props)=>{
         })
     }
 
-    return (
-        <div>
-            <Navbar/>
-            <div className="flex-center position-ref full-height container quiz">
-                <Button text={'Submit'} style={{marginLeft: 'auto'}} onClick={onSubmitButtonClick}/>
-                <QuizTakerInfo respondent={respondent} onChange={handleQuizTakeInfoChange} />
-                <QuizInfoDialog  data={quiz} isEdit={false}/>
-                <QuizBody data={sections} isEdit={false} onChange={handleSectionChange} />
-            </div>
-        </div>
-    );
+    console.log(total_score)
+   if(total_score == -1 ){
+       return (
+           <div>
+               <Navbar/>
+               <div className="flex-center position-ref full-height container quiz">
+                   <Button text={'Submit'} style={{marginLeft: 'auto'}} onClick={onSubmitButtonClick}/>
+                   <QuizTakerInfo respondent={respondent} onChange={handleQuizTakeInfoChange} errors={errors} />
+                   <QuizInfoDialog  data={quiz} isEdit={false}/>
+                   <QuizBody data={sections} isEdit={false} onChange={handleSectionChange} />
+               </div>
+           </div>
+       );
+   }else{
+       return(
+           <ResultPage total_score={total_score}/>
+       )
+   }
 
 
 }

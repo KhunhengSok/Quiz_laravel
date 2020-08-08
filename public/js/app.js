@@ -74107,10 +74107,8 @@ var QuizBody = function QuizBody(props) {
   var order = 1; // console.log(data)
 
   if (data) {
-    while (order < data.length) {
+    while (order <= data.length) {
       for (var i = 0; i < data.length; i++) {
-        console.log('run');
-
         if (data[i].section_order == order) {
           ele.push( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Section_Section__WEBPACK_IMPORTED_MODULE_3__["default"], _extends({
             key: i,
@@ -74129,14 +74127,6 @@ var QuizBody = function QuizBody(props) {
   }
 
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, ele);
-  /* return(
-       <Fragment>
-           <EditSection {...props} />
-           <EditQuestion {...props}/>
-           <EditQuestion {...props}/>
-           <EditQuestion {...props} />
-       </Fragment>
-   )*/
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (QuizBody);
@@ -74377,15 +74367,12 @@ var QuizTakerInfo = function QuizTakerInfo(props) {
       description = _useState4[0],
       setDescription = _useState4[1];
 
-  var onSubmit = function onSubmit(data) {
-    console.log(data);
-  };
-
   var inputStyle = {
     border: "0px",
     margin: "0px",
     padding: "0px"
   };
+  console.log(props);
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "quiz"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -74402,9 +74389,9 @@ var QuizTakerInfo = function QuizTakerInfo(props) {
     ref: register({
       required: "Name is required"
     })
-  })), errors.name && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+  })), props.errors.name && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     className: 'error'
-  }, errors.name.message), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, props.errors.name.message), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: 'input-field'
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
     name: "email",
@@ -74418,9 +74405,9 @@ var QuizTakerInfo = function QuizTakerInfo(props) {
       required: "Name is required"
     }),
     onChange: props.onChange
-  })), errors.email && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+  })), props.errors.email && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     className: 'error'
-  }, errors.email.message)));
+  }, props.errors.email.message)));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (QuizTakerInfo);
@@ -74506,7 +74493,6 @@ var StartDataInput = function StartDataInput(props) {
     whiteSpace: 'nowrap',
     padding: '5px 15px 5px 25px'
   };
-  console.log(props);
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: 'mt-4',
     style: myStyle
@@ -74766,8 +74752,7 @@ var Section = function Section(props) {
   var questions = props.section.questions;
   var ele = [];
   var order = 1;
-  var score = 0;
-  console.log(props); // if (isEdit) {
+  var score = 0; // if (isEdit) {
 
   if (questions) {
     while (order <= questions.length) {
@@ -75720,18 +75705,12 @@ function EditQuizPage(props, location) {
       }
     }).then(function (result) {
       console.log(result);
-      history.push('profile');
+      history.push('/profile');
     })["catch"](function (e) {
       console.log(e);
       console.log(e.response);
     });
   };
-
-  var PublishQuizClick = function PublishQuizClick() {};
-
-  var handleChoicesChange = function handleChoicesChange() {};
-
-  var handleAnswerKeyButtonClick = function handleAnswerKeyButtonClick(event) {};
 
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_navbar_Navbar__WEBPACK_IMPORTED_MODULE_2__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "flex-center position-ref full-height container quiz"
@@ -76130,6 +76109,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_Quiz_QuizTakerInfo__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../components/Quiz/QuizTakerInfo */ "./resources/js/components/Quiz/QuizTakerInfo.js");
 /* harmony import */ var _components_Quiz_QuizInfoDialog__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../components/Quiz/QuizInfoDialog */ "./resources/js/components/Quiz/QuizInfoDialog.js");
 /* harmony import */ var _components_shared_Button__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../components/shared/Button */ "./resources/js/components/shared/Button.js");
+/* harmony import */ var _ResultPage__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./ResultPage */ "./resources/js/pages/ResultPage.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -76159,6 +76139,7 @@ axios__WEBPACK_IMPORTED_MODULE_4___default.a;
 
 
 
+
 var QuizTakingPage = function QuizTakingPage(props) {
   var id = Object(react_router_dom__WEBPACK_IMPORTED_MODULE_5__["useParams"])().id;
 
@@ -76180,7 +76161,21 @@ var QuizTakingPage = function QuizTakingPage(props) {
       quiz = _useState6[0],
       setQuiz = _useState6[1];
 
+  var _useState7 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(-1),
+      _useState8 = _slicedToArray(_useState7, 2),
+      total_score = _useState8[0],
+      setTotalScore = _useState8[1];
+
   var history = Object(react_router_dom__WEBPACK_IMPORTED_MODULE_5__["useHistory"])();
+
+  var _useState9 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])({
+    'email': {},
+    'name': {}
+  }),
+      _useState10 = _slicedToArray(_useState9, 2),
+      errors = _useState10[0],
+      setErrors = _useState10[1];
+
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
     axios__WEBPACK_IMPORTED_MODULE_4___default.a.get("/api/quiz/".concat(id)).then(function (result) {
       console.log(result);
@@ -76210,18 +76205,13 @@ var QuizTakingPage = function QuizTakingPage(props) {
       choice.is_correct = 1;
       setSections(_objectSpread({}, sections));
     }
-
-    console.log(sections);
   };
 
   var getChosenChoicesFromState = function getChosenChoicesFromState() {
     var data = [];
-    console.log('getting');
-    console.log(sections.data.length);
 
     for (var a = 0; a < sections.data.length; a++) {
       var questions = sections.data[a].questions;
-      console.log(questions);
 
       for (var i = 0; i < questions.length; i++) {
         var choices = questions[i].answers;
@@ -76244,6 +76234,29 @@ var QuizTakingPage = function QuizTakingPage(props) {
   };
 
   var onSubmitButtonClick = function onSubmitButtonClick(event) {
+    if (respondent.email == '') {
+      errors.email = {
+        message: "Email is Required"
+      };
+      setErrors(errors);
+    } else {
+      delete errors.email;
+      setErrors(errors);
+    }
+
+    if (respondent.name == '') {
+      errors.name = {
+        message: "Name is Required"
+      };
+      setErrors(errors);
+    } else {
+      delete errors.name;
+    }
+
+    if (!_.isEmpty(errors)) {
+      return;
+    }
+
     var data = {
       'info': respondent,
       'quiz': {
@@ -76251,39 +76264,49 @@ var QuizTakingPage = function QuizTakingPage(props) {
       },
       'answers': getChosenChoicesFromState()
     };
-    console.log(data);
     axios.post("/api/quiz/".concat(id, "/answer"), data).then(function (result) {
       console.log(result);
-      history.push({
-        pathname: "/result/".concat(id),
-        data: {
-          'total_score': result.total_score
-        }
-      }); // <Link
+      setTotalScore(result.data.total_score);
+      /* history.push({
+           pathname: `/result/${id}`,
+           data: {
+               'total_score' : result.total_score
+           }
+       })*/
+      // <Link
     })["catch"](function (err) {
       console.log(err.response);
     });
   };
 
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_navbar_Navbar__WEBPACK_IMPORTED_MODULE_1__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "flex-center position-ref full-height container quiz"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_shared_Button__WEBPACK_IMPORTED_MODULE_8__["default"], {
-    text: 'Submit',
-    style: {
-      marginLeft: 'auto'
-    },
-    onClick: onSubmitButtonClick
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Quiz_QuizTakerInfo__WEBPACK_IMPORTED_MODULE_6__["default"], {
-    respondent: respondent,
-    onChange: handleQuizTakeInfoChange
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Quiz_QuizInfoDialog__WEBPACK_IMPORTED_MODULE_7__["default"], {
-    data: quiz,
-    isEdit: false
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Quiz_QuizBody__WEBPACK_IMPORTED_MODULE_3__["default"], {
-    data: sections,
-    isEdit: false,
-    onChange: handleSectionChange
-  })));
+  console.log(total_score);
+
+  if (total_score == -1) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_navbar_Navbar__WEBPACK_IMPORTED_MODULE_1__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "flex-center position-ref full-height container quiz"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_shared_Button__WEBPACK_IMPORTED_MODULE_8__["default"], {
+      text: 'Submit',
+      style: {
+        marginLeft: 'auto'
+      },
+      onClick: onSubmitButtonClick
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Quiz_QuizTakerInfo__WEBPACK_IMPORTED_MODULE_6__["default"], {
+      respondent: respondent,
+      onChange: handleQuizTakeInfoChange,
+      errors: errors
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Quiz_QuizInfoDialog__WEBPACK_IMPORTED_MODULE_7__["default"], {
+      data: quiz,
+      isEdit: false
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Quiz_QuizBody__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      data: sections,
+      isEdit: false,
+      onChange: handleSectionChange
+    })));
+  } else {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ResultPage__WEBPACK_IMPORTED_MODULE_9__["default"], {
+      total_score: total_score
+    });
+  }
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (QuizTakingPage);
@@ -76308,14 +76331,19 @@ __webpack_require__.r(__webpack_exports__);
 var ResultPage = function ResultPage(props) {
   var myStyle = {
     fontSize: '2.5rem'
-  }; // console.log(props)
-
+  };
+  console.log(props);
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_navbar_Navbar__WEBPACK_IMPORTED_MODULE_1__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: 'container'
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
     style: myStyle,
     className: 'title'
-  }, "Your total score: ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, props.total_score))));
+  }, "Your total score: ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", {
+    style: {
+      fontSize: '3rem',
+      color: '#00FF00'
+    }
+  }, props.total_score))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (ResultPage);

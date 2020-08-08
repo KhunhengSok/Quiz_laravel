@@ -14,7 +14,6 @@ const Section = (props) => {
     let order = 1
 
     let score = 0
-    console.log(props)
     // if (isEdit) {
         if (questions) {
             while(order <= questions.length){

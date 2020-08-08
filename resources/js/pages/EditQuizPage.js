@@ -220,25 +220,13 @@ function EditQuizPage(props, location) {
         ).then(
             result => {
                 console.log(result)
-                history.push('profile')
+                history.push('/profile')
 
             }
         ).catch(e => {
             console.log(e)
             console.log(e.response)
         })
-
-    }
-
-    const PublishQuizClick = () => {
-
-    }
-
-    const handleChoicesChange = () => {
-
-    }
-
-    const handleAnswerKeyButtonClick = (event) => {
 
     }
 

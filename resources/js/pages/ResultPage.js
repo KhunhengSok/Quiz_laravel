@@ -6,13 +6,13 @@ const ResultPage = (props)=>{
         fontSize: '2.5rem'
     }
 
-    // console.log(props)
+    console.log(props)
     return(
        <div>
            <Navbar />
            <div className={'container'}>
                <h1 style={myStyle} className={'title'} >
-                   Your total score: <b>{props.total_score}</b>
+                   Your total score: <b style={{fontSize: '3rem', color: '#00FF00'}}>{props.total_score}</b>
                </h1>
            </div>
        </div>
