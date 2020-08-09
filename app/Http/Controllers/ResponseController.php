@@ -62,13 +62,7 @@ class ResponseController extends Controller
                 ]);
                 $respondent->save();
             }
-            $quizRespondent = new Quiz_Respondent([
-                'respondent_id'     => $respondent->id,
-                'quiz_id'           => $quiz['id'],
-                'finish_time'       => isset($info['finish_time']) ? new \DateTime( $info['finish_time']) : now(),
 
-            ]);
-            $quizRespondent->save();
 
             $total_score =  0;
             foreach ($answers as $answer){
@@ -92,6 +86,14 @@ class ResponseController extends Controller
                     'scored'        => $scored
                 ]);
                 $response->save();
+
+                $quizRespondent = new Quiz_Respondent([
+                    'respondent_id'     => $respondent->id,
+                    'quiz_id'           => $quiz['id'],
+                    'finish_time'       => isset($info['finish_time']) ? new \DateTime( $info['finish_time']) : now(),
+                    'scored'            => $total_score
+                ]);
+                $quizRespondent->save();
             }
             return \response([
                 'total_score' => $total_score

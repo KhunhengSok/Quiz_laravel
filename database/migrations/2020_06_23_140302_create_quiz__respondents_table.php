@@ -17,7 +17,7 @@ class CreateQuizRespondentsTable extends Migration
             $table->id();
             $table->unsignedInteger('respondent_id');
             $table->unsignedInteger('quiz_id');
-            $table->smallInteger('scored')->nullable();
+            $table->smallInteger('scored')->default(0);
             $table->dateTime('finish_time');
             $table->timestamps();
 

@@ -13,6 +13,7 @@ import NotFoundPage from "./pages/NotFoundPage";
 import UserProfilePage from "./pages/UserProfilePage";
 import QuizTakingPage from "./pages/QuizTakingPage";
 import ResultPage from "./pages/ResultPage";
+import QuizTakerDetailPage from "./pages/QuizTakerDetailPage";
 
 class Index extends Component {
     render() {
@@ -25,6 +26,7 @@ class Index extends Component {
                     {/*<Route path='/quiz/create' exact render={() => <CreateQuizPage/>}/>*/}
                     <Route path='/quiz/create' exact render={() => <EditQuizPage/>}/>
                     <Route path='/quiz/:id' exact render={()=> <QuizTakingPage />} />
+                    <Route path='/quiz/:id/takers' exact render={()=> <QuizTakerDetailPage />} />
                     {/*<Route path='/quiz/:id/edit' exact render={()=> <EditQuizPage />} />*/}
                     <Route path='/forget_password' exact render={ ()=> <ForgetPasswordPage />} />
                     <Route path='/profile' exact render={ ()=> <UserProfilePage /> } />

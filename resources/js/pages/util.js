@@ -1,7 +1,7 @@
 
 const getLocalTime = (timeString) =>{
     let date = new Date(timeString)
-    return date.getHours() + ':' +  date.getMinutes()
+    return ('0'+date.getHours()).slice(-2) + ':' +('0'+date.getMinutes()).slice(-2)
 }
 const getLocalDate = (timeString) => {
     let date = new Date(timeString)

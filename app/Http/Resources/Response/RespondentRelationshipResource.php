@@ -15,7 +15,6 @@ class RespondentRelationshipResource extends JsonResource
      */
     public function toArray($request)
     {
-        print($this->resource);
         $respondent = Respondent::where('id', $this->resource)->first();
 
         if($respondent == null){

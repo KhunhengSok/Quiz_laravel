@@ -215,7 +215,6 @@ class QuizController extends Controller
                     if( i < sizeof(sections)){
                         //ToDos
                     }else{
-                        print("delete");
                         $sectionObjects[i]->delete();
                     }
 

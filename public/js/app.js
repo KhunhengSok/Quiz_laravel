@@ -73522,6 +73522,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _pages_UserProfilePage__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./pages/UserProfilePage */ "./resources/js/pages/UserProfilePage.js");
 /* harmony import */ var _pages_QuizTakingPage__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./pages/QuizTakingPage */ "./resources/js/pages/QuizTakingPage.js");
 /* harmony import */ var _pages_ResultPage__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./pages/ResultPage */ "./resources/js/pages/ResultPage.js");
+/* harmony import */ var _pages_QuizTakerDetailPage__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./pages/QuizTakerDetailPage */ "./resources/js/pages/QuizTakerDetailPage.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -73553,6 +73554,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
  // import './../../public/css/apwp.css'
+
 
 
 
@@ -73602,6 +73604,12 @@ var Index = /*#__PURE__*/function (_Component) {
         exact: true,
         render: function render() {
           return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_pages_QuizTakingPage__WEBPACK_IMPORTED_MODULE_11__["default"], null);
+        }
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_0__["Route"], {
+        path: "/quiz/:id/takers",
+        exact: true,
+        render: function render() {
+          return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_pages_QuizTakerDetailPage__WEBPACK_IMPORTED_MODULE_13__["default"], null);
         }
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_0__["Route"], {
         path: "/forget_password",
@@ -73872,6 +73880,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Choice_EditChoices__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Choice/EditChoices */ "./resources/js/components/Choice/EditChoices.js");
 /* harmony import */ var _shared_Button__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../shared/Button */ "./resources/js/components/shared/Button.js");
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _pages_util__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../pages/util */ "./resources/js/pages/util.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -73883,6 +73892,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
 
 
 
@@ -73912,6 +73922,9 @@ var QuizComponent = function QuizComponent(props) {
 
   var onTakeQuizButtonClick = function onTakeQuizButtonClick(event) {};
 
+  var date = new Date("".concat(props.quiz.start_date, " ").concat(props.quiz.start_time));
+  date = new Date(date.getTime() + props.quiz.total_time * 60000);
+  var deadline = Object(_pages_util__WEBPACK_IMPORTED_MODULE_4__["getLocalDate"])(date.toString()) + ' ' + Object(_pages_util__WEBPACK_IMPORTED_MODULE_4__["getLocalTime"])(date.toString());
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: 'question',
     style: {
@@ -73942,7 +73955,7 @@ var QuizComponent = function QuizComponent(props) {
     className: 'no-wrap'
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Deadline:  "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     id: 'deadline'
-  }, "xxxxx")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, deadline)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     style: {
       marginTop: "auto",
       display: 'flex',
@@ -73953,10 +73966,12 @@ var QuizComponent = function QuizComponent(props) {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_shared_Button__WEBPACK_IMPORTED_MODULE_2__["default"], {
     text: 'Take Quiz',
     onClick: function onClick() {}
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_shared_Button__WEBPACK_IMPORTED_MODULE_2__["default"], {
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Link"], {
+    to: "/quiz/".concat(props.quiz.id, "/takers")
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_shared_Button__WEBPACK_IMPORTED_MODULE_2__["default"], {
     text: 'Detail',
     onClick: function onClick() {}
-  }))));
+  })))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (QuizComponent);
@@ -76089,6 +76104,92 @@ var NotFoundPage = /*#__PURE__*/function (_PureComponent) {
 
 /***/ }),
 
+/***/ "./resources/js/pages/QuizTakerDetailPage.js":
+/*!***************************************************!*\
+  !*** ./resources/js/pages/QuizTakerDetailPage.js ***!
+  \***************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _components_navbar_Navbar__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/navbar/Navbar */ "./resources/js/components/navbar/Navbar.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _util__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./util */ "./resources/js/pages/util.js");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+
+
+
+
+var QuizTakerDetailPage = function QuizTakerDetailPage(props) {
+  var id = Object(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["useParams"])().id;
+
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]),
+      _useState2 = _slicedToArray(_useState, 2),
+      answers = _useState2[0],
+      setAnswers = _useState2[1];
+
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
+    axios__WEBPACK_IMPORTED_MODULE_2___default.a.get("/api/quiz/".concat(id, "/answer")).then(function (result) {
+      console.log(result.data.data);
+      setAnswers(result.data.data);
+    })["catch"](function (err) {
+      console.log(err);
+    });
+  }, []);
+
+  var convertTimeLocally = function convertTimeLocally(timeString) {
+    var date = new Date(timeString);
+    date = new Date(date.getTime() + 7 * 1000 * 60 * 60);
+    return Object(_util__WEBPACK_IMPORTED_MODULE_4__["getLocalDate"])(date.toString()) + " " + Object(_util__WEBPACK_IMPORTED_MODULE_4__["getLocalTime"])(date.toString());
+  };
+
+  var ele = [];
+
+  for (var i = 0; i < answers.length; i++) {
+    ele.push( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", {
+      key: i
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
+      scope: "row"
+    }, i + 1), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, answers[i].respondent.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, answers[i].respondent.email), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, convertTimeLocally(answers[i].response.finish_time)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, answers[i].response.scored)));
+  }
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_navbar_Navbar__WEBPACK_IMPORTED_MODULE_1__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("table", {
+    className: "table table-bordered container my-5"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("thead", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
+    scope: "col"
+  }, "#"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
+    scope: "col"
+  }, "Name"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
+    scope: "col"
+  }, "Email"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
+    scope: "col"
+  }, "Finish time"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
+    scope: "col"
+  }, "Score"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, ele)));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (QuizTakerDetailPage);
+
+/***/ }),
+
 /***/ "./resources/js/pages/QuizTakingPage.js":
 /*!**********************************************!*\
   !*** ./resources/js/pages/QuizTakingPage.js ***!
@@ -76576,9 +76677,7 @@ var UserProfilePage = function UserProfilePage(props) {
 
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
     setLoggedIn(_Auth__WEBPACK_IMPORTED_MODULE_3__["default"].isAuthenticated());
-    console.log('use effect');
     var id = _Auth__WEBPACK_IMPORTED_MODULE_3__["default"].getUser().id;
-    console.log("user id ".concat(id, " "));
     axios.get("/api/user/".concat(id, "/quiz")).then(function (result) {
       setQuiz(result.data.data[0].quizzes);
       console.log(result.data.data[0].quizzes);
@@ -76639,7 +76738,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getLocalDate", function() { return getLocalDate; });
 var getLocalTime = function getLocalTime(timeString) {
   var date = new Date(timeString);
-  return date.getHours() + ':' + date.getMinutes();
+  return ('0' + date.getHours()).slice(-2) + ':' + ('0' + date.getMinutes()).slice(-2);
 };
 
 var getLocalDate = function getLocalDate(timeString) {

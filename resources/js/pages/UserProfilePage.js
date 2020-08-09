@@ -15,9 +15,7 @@ const UserProfilePage = (props) => {
     useEffect(() => {
         setLoggedIn(Auth.isAuthenticated())
 
-        console.log('use effect')
         let id = Auth.getUser().id
-        console.log(`user id ${id} `)
         axios.get(`/api/user/${id}/quiz`).then(result => {
             setQuiz(result.data.data[0].quizzes)
             console.log(result.data.data[0].quizzes)

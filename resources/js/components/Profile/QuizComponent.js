@@ -2,6 +2,7 @@ import React, {Fragment, useEffect, useState} from 'react';
 import EditChoices from "../Choice/EditChoices";
 import Button from "../shared/Button";
 import {Link} from "react-router-dom";
+import {getLocalDate, getLocalTime} from "../../pages/util";
 
 const QuizComponent = (props) => {
     const [quiz, setQuiz] = useState({})
@@ -26,6 +27,9 @@ const QuizComponent = (props) => {
 
     }
 
+    let date = new Date( `${props.quiz.start_date} ${props.quiz.start_time}`)
+    date = new Date(date.getTime() + props.quiz.total_time * 60000)
+    let deadline = getLocalDate(date.toString()) + ' ' +  getLocalTime(date.toString())
 
     return (
         <div className={'question'} style={{display: "flex", flexDirection: 'row'}}>
@@ -40,18 +44,20 @@ const QuizComponent = (props) => {
             <div className={'flex-column'} style={{marginLeft: "auto"}}>
                 <div className={'no-wrap'}>
                     <span>Deadline:  </span>
-                    <span id={'deadline'}>xxxxx</span>
+                    {/*<span id={'deadline'}>{date.toTimeString()}</span>*/}
+                    <span id={'deadline'}>{deadline}</span>
                 </div>
 
                 <div  style={{marginTop: "auto", display: 'flex', flexDirection:'row'}}>
                     <Link to={`/quiz/${props.quiz.id}`}>
                         <Button  text={'Take Quiz'} onClick={()=>{}}/>
                     </Link>
-                    <Button text={'Detail'} onClick={ ()=>{}}/>
+                    <Link to={`/quiz/${props.quiz.id}/takers`}>
+                        <Button text={'Detail'} onClick={ ()=>{}}/>
+                    </Link>
 
                 </div>
             </div>
-
         </div>
     )
 }
